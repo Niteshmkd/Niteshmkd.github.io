@@ -1,134 +1,163 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Nitesh Kumar</title>
-    <meta name="author" content="Nicklas Hansen">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Nicklas Hansen">
-	<meta property="og:description" content="PhD student, UC San Diego">
-    <meta property="og:image" content="https://nicklashansen.github.io/files/me.jpeg">
-	<meta property="og:url" content="https://nicklashansen.github.io/">
-	<meta name="twitter:card" content="summary_large_image">
-    <link rel="apple-touch-icon" href="files/ucsd-logo.png">
-    <link rel="icon" type="image/png" href="files/ucsd-logo.png">
-    <link rel="manifest" href="files/site.webmanifest">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Your Name | Robotics Portfolio</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <style>
+    /* --- Styles --- */
+    body { font-family: 'Montserrat', sans-serif; background: #fafcff; color: #222; margin: 0; }
+    a { color: #1366d6; text-decoration: none; }
+    .container { max-width: 900px; margin: 0 auto; padding: 32px; }
+    header { text-align: center; padding: 24px 0 16px 0; }
+    header h1 { margin: 0; font-size: 2.6em; font-weight: 700; }
+    header span { font-size: 1.2em; color: #1366d6; }
+    .section-title { font-size: 1.7em; margin-top: 48px; margin-bottom:16px; border-bottom: 2px solid #eee; display:inline-block }
+    #about p { margin: 0 0 24px 0; }
+    .card { background: #fff; box-shadow: 0 2px 8px rgba(30,80,150,0.08); border-radius: 12px; padding: 18px 22px 18px 22px; margin-bottom: 22px; transition: box-shadow .2s;}
+    .card:hover { box-shadow: 0 4px 20px rgba(30,80,150,0.18);}
+    .card ul { padding-left: 20px; margin:0 }
+    .tags { margin: 10px 0 0 0;}
+    .tag { display:inline-block; background: #1366d6; color: #fff; padding:3px 9px; margin:0 6px 6px 0; border-radius: 7px; font-size:0.9em}
+    .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;}
+    .video-responsive iframe { position: absolute; top:0; left:0; width:100%; height:100%; border-radius: 8px;}
+    /* Competition highlight */
+    .competition { border-left: 8px solid #1366d6; background: #EFF6FB; padding:18px 22px; border-radius: 12px; margin-bottom:24px }
+    .competition h3 {margin-top:0;}
+    /* Contact */
+    #contact { text-align:center; padding:24px; }
+    #contact a { margin:0 10px; }
+    /* Timeline */
+    .timeline {border-left:2px solid #B8D0EF;padding-left:24px;margin-left:16px}
+    .timeline .event {position:relative;margin-bottom:24px;}
+    .timeline .event::before {content:""; position:absolute; left:-30px; top:8px; width:13px; height:13px; background:#1366d6; border-radius:19px;}
+    @media (max-width:700px){
+      .container {padding: 10px;}
+      .section-title {font-size:1.3em}
+    }
+  </style>
 </head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Your Name</h1>
+      <span>Robotics & Autonomous Systems Engineer</span>
+      <p style="margin-top:8px;color:#555;">Inventing robust algorithms for autonomy in uncertain environments</p>
+    </header>
 
-<div class="header noselect">
-    <div class="content row">
-        <div class="header-profile-picture"></div>
-        <div class="header-text">
-            <div class="header-name">
-                <h1>Nitesh Kumar</h1>
-            </div>
-            <div class="header-subtitle">
-                Master's Student, Texas A&M University
-            </div>
-            <div class="header-links">
-                <a class="btn" href="#contact">Email</a> /
-                <a class="btn" href="https://github.com/Niteshmkd">GitHub</a> /
-                <a class="btn" href="https://www.linkedin.com/in/nitesh-kumar-08349b135">LinkedIn</a> /
-                <a class="btn" href="files/cv.pdf">CV</a>
-            </div>
+    <section id="about">
+      <div class="section-title">About Me</div>
+      <p>
+        Hi! I'm <strong>Your Name</strong>, a passionate robotics engineer focusing on autonomous systems, path planning, robot collaboration, and robust control. I thrive on building algorithms and hardware that push the boundaries of what robots can do in real-world uncertain environments.
+      </p>
+      <p>
+        <strong>Skills:</strong> Python, C++, ROS, Julia, MATLAB, Robotics, Kalman Filter, Reinforcement Learning, Adaptive Control
+      </p>
+      <!-- Add your photo here if you want:
+      <img src="yourphoto.jpg" style="width:140px; border-radius:50%;"/>
+      -->
+    </section>
+
+    <section id="projects">
+      <div class="section-title">Highlighted Projects</div>
+      
+      <div class="card">
+        <h3>Path Planning and Navigation autonomous vehicles in GPS-denied environment <span style="float:right;font-size:0.7em;color:#555;">Dec 24 – Present</span></h3>
+        <ul>
+          <li>Developed two novel cooperative algorithms for motion and navigation for multi-robot teams.</li>
+          <li>Kalman filter based localization using relative measurements between robots and known landmarks.</li>
+          <li>Implemented real-time algorithm on two drones & one ground vehicle using ROS, navigating without GPS.</li>
+          <li><strong>Result:</strong> Conference paper accepted at <strong>AIAA SCITECH 2026</strong>.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">ROS</span><span class="tag">Python</span><span class="tag">Kalman Filter</span>
         </div>
-    </div>
-</div>
-<div class="content" style="padding-bottom: 64px;">
-    <div>
-        <p>
-          
-        </p>
-    </div>
-    <div>
-        <h2 class="noselect">Research interest</h2>
-        <p>
+        <!-- Replace with your video link (YouTube, Vimeo, etc) -->
+        <div class="video-responsive" style="margin-top:12px">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <!-- Paper link, update as needed -->
+        <p><a href="#">View Paper (AIAA SCITECH 2026)</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Persistent Robot Charging problem for long term autonomy <span style="float:right;font-size:0.7em;color:#555;">Oct 23 – Dec 2024</span></h3>
+        <ul>
+          <li>Reviewed literature on optimal charging schedules for UAVs.</li>
+          <li>Formulated ILP algorithm with Julia/IBM Cplex for optimal heterogeneous drone charging schedules.</li>
+          <li>Developed proof-of-concept for UAV charging stations to minimize human intervention.</li>
+          <li><strong>Result:</strong> Paper accepted at <strong>IEEE Robotics Automation Letters</strong>.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Julia</span><span class="tag">IBM Cplex</span><span class="tag">UAV</span>
+        </div>
+        <div class="video-responsive" style="margin-top:12px">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><a href="#">View Paper (IEEE RA-L)</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Robust Lateral Control of autonomous vehicles <span style="float:right;font-size:0.7em;color:#555;">Oct 23 – Dec 2024</span></h3>
+        <ul>
+          <li>Designed robust lateral control considering uncertainties (unknown load & inertia).</li>
+          <li>Result: Paper under review at <strong>ITV</strong>.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Control</span><span class="tag">Robust</span>
+        </div>
+        <p><a href="#">PDF (Paper under review)</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Adaptive control design of a cable-driven upper arm soft exosuit <span style="float:right;font-size:0.7em;color:#555;">Jul 22 - Jul 23</span></h3>
+        <ul>
+          <li>Contributed to collaborative research, enhancing human arm strength with exosuits.</li>
+          <li>Built actuator powered by EC 60 Maxon Motor & Raspberry Pi.</li>
+          <li>Model-based Adaptive Gravity Compensation: <strong>63% reduction in metabolic cost.</strong></li>
+          <li>Developed RL & Kalman Filter controllers for user intent detection & adaptive assistance.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Adaptive Control</span><span class="tag">Reinforcement Learning</span>
+          <span class="tag">Kalman Filter</span><span class="tag">Exosuit</span>
+        </div>
+        <div class="video-responsive" style="margin-top:12px">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p><a href="#">PDF/Article</a></p>
+      </div>
+    </section>
     
-		I am a Master's student at <a href="https://www.tamu.edu/">Texas A&M University</a>. My research interest lies in robotics, optimization, control and automation.  My current research focuses on the persistent scheduling of battery-limited drones on charging pads to achieve long-term autonomy. I have developed a novel algorithm based on mixed-integer linear programming to address this problem. Below are the simulation results for four drones tasked with periodically monitoring 100 sites and returning to the starting depot to recharge. Our algorithm determines which sites each drone should visit based on their battery capacity and schedules them to minimize the number of charging pads required at the starting depot.     </p>
-    		<div class="center-container">
-		<img src="files/Scheduling.gif" alt="Centered IMAGE">
-		</div>
-	    
-    </div>
-	
-       
-	
-    <div>
-	        <h2 class="noselect">Competition</h2>
-			<p>
-                <a class="publication-title bold" href="https://github.com/Niteshmkd/Minidrone.git">Mathswork Minidrone Competition</a>
-				<span class="italic">Development of an autonomous minidrone line follower
-                
-    </div>
-	        <div class="center-container">
-				<img src="files/drone.gif" alt="Centered IMAGE">
-
-		
-			</div>
-		
-        <h2 class="noselect">Preprints</h2>
-        <div class="publication row clearfix">
-            <div class="row-media" style="background-image: url(files/AGC.svg);"></div>
-            <div class="row-text">
-                <a class="publication-title bold" href="https://arxiv.org/pdf/2304.14823">Adaptive Gravity Compensation Control of a Cable-Driven Upper-Arm Soft Exosuit</a><br/>
-				Joyjit Mukherjee, Ankit Chatterjee, Shreeshan Jena,<span class='bold'> Nitesh Kumar</span>, Suriya Prakash Muthukrishnan,  Sitikantha Roy, Shubhendu Bhasin*<br/>
-                <span class="italic">The IEEE Robotics and Automation Letters<br/>
-                <a class="btn btn-red" href="https://arxiv.org/abs/2304.14823">paper</a> / <a class="btn btn-dark" href="bibtex/adaptive.txt">bibtex</a>
-            </div>
+    <section id="competitions">
+      <div class="section-title">Competitions</div>
+      <div class="competition">
+        <h3>SAE AutoDrive Challenge II - Year <span style="float:right;font-size:0.7em;color:#555;">Aug 24 – Jun 25</span></h3>
+        <ul>
+          <li>Headed localization team for SAE AutoDrive II.</li>
+          <li>Implemented SLAM-based real-time localization using LiDAR data; enabled car navigation in GPS-denied environment.</li>
+          <li><strong>Achieved overall 3rd position!</strong></li>
+        </ul>
+        <!-- Competition photo/video if available -->
+        <div class="video-responsive" style="margin-top:12px">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" frameborder="0" allowfullscreen></iframe>
         </div>
-		
-		<div class="publication row clearfix">
-            <div class="row-media" style="background-image: url(files/Actuator.png);"></div>
-            <div class="row-text">
-                <a class="publication-title bold" href="http://arxiv.org/abs/2306.17427">Modeling and parametric optimization of 3D tendon-sheath actuator system for upper limb soft exosuit</a><br/>
-				Amit Yadav,<span class='bold'> Nitesh Kumar</span>, Shaurya Surana, Lalan Kumar,Suriya Prakash Muthukrishnan, Shubhendu Bhasin,  Sitikantha Roy*<br/>
-                <a class="btn btn-red" href="http://arxiv.org/abs/2306.17427">paper</a> / <a class="btn btn-dark" href="bibtex/actuator.txt">bibtex</a>
-            </div>
-        </div>
-       
-        <h2 class="noselect">Misc. open-source projects</h2>
-
-        <div class="publication row clearfix">
-            <div class="row-media" style="background-image: url(files/origami.gif);"></div>
-            <div class="row-text">
-                <a class="bold" href="https://github.com/Niteshmkd/Origamibot.git">HelioPhilaBot: A Bio-Inspired Origami Robot that Mimics a Sunflower</span></a><br/>
-                <span class="bold">Nitesh Kumar</span><br/>
-                November 2023<br/>
-                <a class="btn btn-orange" href="https://github.com/Niteshmkd/Origamibot.git">project</a> / <a class="btn" href="https://github.com/Niteshmkd/Origamibot.git">code</a>
-            </div>
-        </div>
-		<div class="publication row clearfix">
-        <div class="row-media" style="background-image: url(files/special_topic.gif);"></div>
-            <div class="row-text">
-                <a class="bold" href="https://github.com/Niteshmkd/Spatial-Searching-Method.git">A Spatial Searching Method for Planning Under Time-Dependent Constraints for Eco-Driving in Signalized Traffic Intersection</span></a><br/>
-                <span class="bold">Nitesh Kumar</span><br/>
-                November 2023<br/>
-                <a class="btn btn-orange" href="files/Spacial_topic.pdf">project</a> / <a class="btn" href="https://github.com/Niteshmkd/Spatial-Searching-Method.git">code</a>
-            </div>
-        </div>
-
-        <div class="publication row clearfix">
-            <div class="row-media" style="background-image: url(files/robotic_int.gif);"></div>
-            <div class="row-text">
-                <a class="bold" href="https://github.com/Niteshmkd/Robo_Int-AIPNG.git">Robotic Interception of Moving Objects Using an Augmented Ideal Proportional Navigation Guidance
-Technique</span></a><br/>
-                <span class="bold">Nitesh Kumar</span>, Subham Swastik Samal, Pravesh Rana Vadapalli<br/>
-                November 2019<br/>
-                <a class="btn btn-orange" href="files/termpaper.pdf">project</a> / <a class="btn" href="https://github.com/Niteshmkd/Robo_Int-AIPNG.git">code</a>
-            </div>
-        </div>
-
-
-
-
-    <div class="noselect">
-        <a id="contact"></a>
-        <h2>Contact</h2>
-        You are very welcome to contact me regarding my research. 
-        I can be contacted directly at <span class="bold">niteshmkd</span> [at] <span class="bold">gmail</span>。com
-    </div>
-</div>
-<div class="footer noselect">
-    <div class="footer-content">
-        &copy; 2023 Nicklas Hansen. You can fork it <a style="color: white; text-decoration: underline;" href="https://github.com/nicklashansen/nicklashansen.github.io">here</a>.
-    </div>
-</div>
+        <!-- Press or results links -->
+        <p><a href="#">News Coverage</a></p>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <div class="section-title">Contact</div>
+      <p>Let's connect! Reach out via these channels:</p>
+      <a href="mailto:your.email@email.com">Email</a> |
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    </section>
+    
+    <footer style="margin-top:50px;text-align:center;font-size:0.9em;color:#aaa;">
+      &copy; 2024 Your Name — Portfolio crafted with HTML & CSS
+    </footer>
+  </div>
+</body>
+</html>
