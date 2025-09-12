@@ -1,8 +1,0 @@
-@misc{yadav2023modeling,
-      title={Modeling and parametric optimization of 3D tendon-sheath actuator system for upper limb soft exosuit}, 
-      author={Amit Yadav and Nitesh Kumar and Shaurya Surana and Lalan Kumar and Suriya Prakash Muthukrishnan and Shubhendu Bhasin and Sitikantha Roy},
-      year={2023},
-      eprint={2306.17427},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO}
-}

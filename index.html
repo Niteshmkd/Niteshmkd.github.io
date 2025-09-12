@@ -2,24 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Your Name | Robotics Portfolio</title>
+  <title>Nitesh Kumar | Robotics Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   <style>
-    /* --- Styles --- */
     body { font-family: 'Montserrat', sans-serif; background: #fafcff; color: #222; margin: 0; }
     a { color: #1366d6; text-decoration: none; }
     .container { max-width: 900px; margin: 0 auto; padding: 32px; }
     header { text-align: center; padding: 24px 0 16px 0; }
     header h1 { margin: 0; font-size: 2.6em; font-weight: 700; }
     header span { font-size: 1.2em; color: #1366d6; }
+    /* --- Photo Style --- */
+    #profile-photo {
+      width: 155px;
+      height: 155px;
+      margin: 0 auto 20px auto;
+      object-fit: cover;
+      border-radius: 70%;
+      border: 1px solid #fafcfe;
+      margin-bottom: 8px;
+      box-shadow: 0 2px 10px rgba(30,80,150,0.11);
+    }
     .section-title { font-size: 1.7em; margin-top: 48px; margin-bottom:16px; border-bottom: 2px solid #eee; display:inline-block }
     #about p { margin: 0 0 24px 0; }
     .card { background: #fff; box-shadow: 0 2px 8px rgba(30,80,150,0.08); border-radius: 12px; padding: 18px 22px 18px 22px; margin-bottom: 22px; transition: box-shadow .2s;}
     .card:hover { box-shadow: 0 4px 20px rgba(30,80,150,0.18);}
     .card ul { padding-left: 20px; margin:0 }
     .tags { margin: 10px 0 0 0;}
-    .tag { display:inline-block; background: #1366d6; color: #fff; padding:3px 9px; margin:0 6px 6px 0; border-radius: 7px; font-size:0.9em}
+    .tag { display:inline-block; background: #88bcff; color: #fff; padding:3px 9px; margin:0 6px 6px 0; border-radius: 7px; font-size:0.9em}
     .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;}
     .video-responsive iframe { position: absolute; top:0; left:0; width:100%; height:100%; border-radius: 8px;}
     /* Competition highlight */
@@ -35,28 +45,30 @@
     @media (max-width:700px){
       .container {padding: 10px;}
       .section-title {font-size:1.3em}
+      #profile-photo {width:90px;height:90px;}
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Your Name</h1>
+      <!-- Insert your photo below, make sure the filename matches -->
+      <img src="profile.jpeg" alt="Your Name Photo" id="profile-photo" />
+      <h1>Nitesh Kumar</h1>
       <span>Robotics & Autonomous Systems Engineer</span>
-      <p style="margin-top:8px;color:#555;">Inventing robust algorithms for autonomy in uncertain environments</p>
+      <p style="margin-top:8px;color:#555;">
+        Inventing robust algorithms for autonomy in uncertain environments
+      </p>
     </header>
 
     <section id="about">
       <div class="section-title">About Me</div>
       <p>
-        Hi! I'm <strong>Your Name</strong>, a passionate robotics engineer focusing on autonomous systems, path planning, robot collaboration, and robust control. I thrive on building algorithms and hardware that push the boundaries of what robots can do in real-world uncertain environments.
+        Hi! I'm <strong>Nitesh Kumar</strong>, a passionate robotics engineer focusing on autonomous systems, path planning, robot collaboration, and robust control. I thrive on building algorithms and hardware that push the boundaries of what robots can do in real-world uncertain environments.
       </p>
       <p>
         <strong>Skills:</strong> Python, C++, ROS, Julia, MATLAB, Robotics, Kalman Filter, Reinforcement Learning, Adaptive Control
       </p>
-      <!-- Add your photo here if you want:
-      <img src="yourphoto.jpg" style="width:140px; border-radius:50%;"/>
-      -->
     </section>
 
     <section id="projects">
@@ -73,11 +85,9 @@
         <div class="tags">
           <span class="tag">ROS</span><span class="tag">Python</span><span class="tag">Kalman Filter</span>
         </div>
-        <!-- Replace with your video link (YouTube, Vimeo, etc) -->
-        <div class="video-responsive" style="margin-top:12px">
-          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <!-- Paper link, update as needed -->
+	<div class="video-responsive" style="margin-top:12px">
+  		<iframe src="https://www.youtube.com/embed/psHMaVk3EME" frameborder="0" allowfullscreen></iframe>
+		</div>
         <p><a href="#">View Paper (AIAA SCITECH 2026)</a></p>
       </div>
 
@@ -138,11 +148,9 @@
           <li>Implemented SLAM-based real-time localization using LiDAR data; enabled car navigation in GPS-denied environment.</li>
           <li><strong>Achieved overall 3rd position!</strong></li>
         </ul>
-        <!-- Competition photo/video if available -->
         <div class="video-responsive" style="margin-top:12px">
           <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" frameborder="0" allowfullscreen></iframe>
         </div>
-        <!-- Press or results links -->
         <p><a href="#">News Coverage</a></p>
       </div>
     </section>

@@ -1,8 +1,0 @@
-@misc{mukherjee2023adaptive,
-      title={Adaptive Gravity Compensation Control of a Cable-Driven Upper-Arm Soft Exosuit}, 
-      author={Joyjit Mukherjee and Ankit Chatterjee and Shreeshan Jena and Nitesh Kumar and Suriya Prakash Muthukrishnan and Sitikantha Roy and Shubhendu Bhasin},
-      year={2023},
-      eprint={2304.14823},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO}
-}
