@@ -87,6 +87,15 @@
       background: #000;
     }
 
+    .project-image {
+      max-width: 100%;       /* makes image responsive */
+      height: auto;          /* keeps image proportional */
+      border-radius: 8px;    /* rounded corners (optional) */
+      box-shadow: 0 2px 8px rgba(30,80,150,0.08); /* optional shadow */
+      margin-top: 12px;      /* space above image */
+      margin-bottom: 12px;   /* space below image */
+    }
+
   </style>
 </head>
 <body>
@@ -123,7 +132,7 @@
           <li><strong>Result:</strong> Conference paper accepted at <strong>AIAA SCITECH 2026</strong>.</li>
         </ul>
         <div class="tags">
-          <span class="tag">ROS</span><span class="tag">Python</span><span class="tag">Kalman Filter</span>
+          <span class="tag">ROS</span><span class="tag">Python</span><span class="tag">Kalman Filter</span> <span class="tag">Cooperative localization</span>
         </div>
 	<div class="video-responsive" style="margin-top:12px">
   		<iframe src="https://www.youtube.com/embed/psHMaVk3EME" frameborder="0" allowfullscreen></iframe>
@@ -140,25 +149,32 @@
           <li><strong>Result:</strong> Paper accepted at <strong>IEEE Robotics Automation Letters</strong>.</li>
         </ul>
         <div class="tags">
-          <span class="tag">Julia</span><span class="tag">IBM Cplex</span><span class="tag">UAV</span>
+          <span class="tag">Julia</span><span class="tag">IBM Cplex</span><span class="tag">Gurobi</span>
         </div>
         <div class="gif-row">
           <img src="subtour.gif" alt="Scheduling Demo 1" class="gif-demo">
           <img src="battery_animation.gif" alt="Scheduling Demo 2" class="gif-demo">
         </div>
-        <p><a href="#">View Paper (IEEE RA-L)</a></p>
+        <p><a href="https://ieeexplore.ieee.org/abstract/document/10819616">View Paper (IEEE RA-L)</a></p>
       </div>
 
       <div class="card">
         <h3>Robust Lateral Control of autonomous vehicles <span style="float:right;font-size:0.7em;color:#555;">Oct 23 – Dec 2024</span></h3>
         <ul>
-          <li>Designed robust lateral control considering uncertainties (unknown load & inertia).</li>
-          <li>Result: Paper under review at <strong>ITV</strong>.</li>
+          <li>Created a robust lateral control algorithm for autonomous vehicles that adapts to unknown loads.</li>
+          <li>Ensured stable and accurate path tracking under various loading conditions using a new modeling approach.</li>
+          <li>Validated control performance with low tracking errors through simulation and ongoing publication.</li>
+          <li>Result: Paper under review at <strong>IEEE Transactions on Intelligent Transportation Systems (ITV).</strong>.</li>
         </ul>
         <div class="tags">
-          <span class="tag">Control</span><span class="tag">Robust</span>
+          <span class="tag">Control</span>
+          <span class="tag">Robust</span>
+          <span class="tag">Autonomous Vehicles</span>
+          <span class="tag">Uncertainty</span>
+          <!-- <span class="tag">Stability</span> -->
         </div>
-        <p><a href="#">PDF (Paper under review)</a></p>
+        <img src="Robust Lateral Control.png" alt="Descriptive text" class="project-image">
+        <p><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.173749950.05531697">techrxiv(Paper under review)</a></p>
       </div>
 
       <div class="card">
@@ -179,7 +195,7 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        <p><a href="#">PDF/Article</a></p>
+        <p><a href="https://arxiv.org/abs/2304.14823">arXiv version</a></p>
       </div>
     </section>
     
@@ -195,20 +211,20 @@
         <div class="video-responsive" style="margin-top:12px">
           <iframe src="https://www.youtube.com/embed/BqS50D5Te_U" frameborder="0" allowfullscreen></iframe>
         </div>
-        <p><a href="#">News Coverage</a></p>
+        <p><a href="https://www.youtube.com/watch?v=yfAE5uTY3LE">Learn more about the competition</a></p>
       </div>
     </section>
     
     <section id="contact">
       <div class="section-title">Contact</div>
       <p>Let's connect! Reach out via these channels:</p>
-      <a href="mailto:your.email@email.com">Email</a> |
-      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      <a href="mailto:niteshk@tamu.edu">Email</a> |
+      <a href="www.linkedin.com/in/nitesh-kumar-08349b135" target="_blank">LinkedIn</a> 
+      <!-- <a href="https://github.com/yourusername" target="_blank">GitHub</a> -->
     </section>
     
     <footer style="margin-top:50px;text-align:center;font-size:0.9em;color:#aaa;">
-      &copy; 2024 Your Name — Portfolio crafted with HTML & CSS
+      &copy; 2025 Nitesh Kumar — Portfolio crafted with HTML & CSS
     </footer>
   </div>
 </body>
