@@ -2,230 +2,545 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Nitesh Kumar | Robotics Portfolio</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N Kumar | Robotics Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    body { font-family: 'Montserrat', sans-serif; background: #fafcff; color: #222; margin: 0; }
-    a { color: #1366d6; text-decoration: none; }
-    .container { max-width: 900px; margin: 0 auto; padding: 32px; }
-    header { text-align: center; padding: 24px 0 16px 0; }
-    header h1 { margin: 0; font-size: 2.6em; font-weight: 700; }
-    header span { font-size: 1.2em; color: #1366d6; }
-    /* --- Photo Style --- */
-    #profile-photo {
-      width: 300px;
-      height: 300px;
-      margin: 0 auto 20px auto;
-      object-fit: cover;
-      border-radius: 70%;
-      border: 1px solid #fafcfe;
-      margin-bottom: 8px;
-      box-shadow: 0 2px 10px rgba(30,80,150,0.11);
-    }
-    .section-title { font-size: 1.7em; margin-top: 48px; margin-bottom:16px; border-bottom: 2px solid #eee; display:inline-block }
-    #about p { margin: 0 0 24px 0; }
-    .card { background: #fff; box-shadow: 0 2px 8px rgba(30,80,150,0.08); border-radius: 12px; padding: 18px 22px 18px 22px; margin-bottom: 22px; transition: box-shadow .2s;}
-    .card:hover { box-shadow: 0 4px 20px rgba(30,80,150,0.18);}
-    .card ul { padding-left: 20px; margin:0 }
-    .tags { margin: 10px 0 0 0;}
-    .tag { display:inline-block; background: #88bcff; color: #fff; padding:3px 9px; margin:0 6px 6px 0; border-radius: 7px; font-size:0.9em}
-    .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;}
-    .video-responsive iframe { position: absolute; top:0; left:0; width:100%; height:100%; border-radius: 8px;}
-    /* Competition highlight */
-    .competition { border-left: 8px solid #1366d6; background: #EFF6FB; padding:18px 22px; border-radius: 12px; margin-bottom:24px }
-    .competition h3 {margin-top:0;}
-    /* Contact */
-    #contact { text-align:center; padding:24px; }
-    #contact a { margin:0 10px; }
-    /* Timeline */
-    .timeline {border-left:2px solid #B8D0EF;padding-left:24px;margin-left:16px}
-    .timeline .event {position:relative;margin-bottom:24px;}
-    .timeline .event::before {content:""; position:absolute; left:-30px; top:8px; width:13px; height:13px; background:#1366d6; border-radius:19px;}
-    @media (max-width:700px){
-      .container {padding: 10px;}
-      .section-title {font-size:1.3em}
-      #profile-photo {width:90px;height:90px;}
+    /* CSS Variables for easy theming */
+    :root {
+      --primary-color: #0A66C2;
+      --secondary-color: #EFF6FB;
+      --text-dark: #1F2937;
+      --text-light: #4B5563;
+      --bg-light: #F9FAFB;
+      --bg-white: #FFFFFF;
+      --transition-speed: 0.3s;
     }
 
-    .gif-row {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+
+    a:hover {
+      color: #004182;
+      text-decoration: underline;
+    }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      z-index: 1000;
+      padding: 15px 0;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
       display: flex;
-      gap: 16px;           /* space between gifs */
-      justify-content: center; /* center them horizontally */
-      margin-top: 12px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 24px;
     }
-    .gif-demo {
-      width: 100%;          /* resize width responsively */
-      max-width: 420px;    /* or pick a fixed pixel width if you prefer */
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(30,80,150,0.11);
+
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .nav-links a {
+      margin-left: 24px;
+      font-weight: 600;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 60px 0;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.1;
+      color: var(--text-dark);
+    }
+
+    .hero h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .hero-image img {
+      width: 280px;
+      height: 280px;
       object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--bg-white);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
-    @media (max-width:1000px) {
-      .gif-row {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-      }
-      .gif-demo {
-        width: 100%;
-        max-width: 320px;
-      }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      background: #004182;
+      color: white;
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      background: var(--primary-color);
+      bottom: -10px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    /* About Section */
+    .about-content {
+      background: var(--bg-white);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      font-size: 1.1rem;
+    }
+
+    .skills-container {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid #E5E7EB;
+    }
+
+    /* Grid Layout for Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      background: var(--bg-white);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      margin-right: 15px;
+    }
+
+    .date-badge {
+      background: var(--secondary-color);
+      color: var(--primary-color);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+      color: var(--text-light);
+      flex-grow: 1;
+    }
+
+    .card li {
+      margin-bottom: 8px;
+    }
+
+    .tags {
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--text-dark);
+      color: white;
+      padding: 4px 12px;
+      margin: 0 8px 8px 0;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Media Containers */
+    .media-container {
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
     }
 
     .video-responsive {
       position: relative;
       padding-bottom: 56.25%;
       height: 0;
-      overflow: hidden;
     }
-    .video-responsive video {
+
+    .video-responsive iframe, .video-responsive video {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border-radius: 8px;
-      background: #000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .gif-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .gif-demo {
+      flex: 1;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
     }
 
     .project-image {
-      max-width: 100%;       /* makes image responsive */
-      height: auto;          /* keeps image proportional */
-      border-radius: 8px;    /* rounded corners (optional) */
-      box-shadow: 0 2px 8px rgba(30,80,150,0.08); /* optional shadow */
-      margin-top: 12px;      /* space above image */
-      margin-bottom: 12px;   /* space below image */
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 20px;
     }
 
+    /* Competition Specific */
+    .competition-card {
+      border-left: 6px solid var(--primary-color);
+    }
+
+    /* Footer / Contact */
+    .footer {
+      background: var(--text-dark);
+      color: white;
+      padding: 60px 0 30px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .social-links {
+      margin: 24px 0;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.8rem;
+      margin: 0 15px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .copyright {
+      color: #9CA3AF;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero p {
+        margin: 0 auto 24px;
+      }
+      .nav-links {
+        display: none; /* Can be replaced with a hamburger menu */
+      }
+    }
   </style>
 </head>
 <body>
+
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">N. Kumar</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#competitions">Competitions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
   <div class="container">
-    <header>
-      <!-- Insert your photo below, make sure the filename matches -->
-      <img src="profile.jpeg" alt="Your Name Photo" id="profile-photo" />
-      <h1>Nitesh Kumar</h1>
-      <span>Robotics & Autonomous Systems Engineer</span>
-      <p style="margin-top:8px;color:#555;">
-        Inventing robust algorithms for autonomy in uncertain environments
-      </p>
-    </header>
+    
+    <div class="hero">
+      <div class="hero-content">
+        <h1>N Kumar</h1>
+        <h2>Robotics & Autonomous Systems Engineer</h2>
+        <p>Inventing robust algorithms for autonomy in uncertain environments. Specializing in multi-robot systems, localization, motion planning, and SLAM.</p>
+        <a href="#contact" class="btn">Get in Touch</a>
+      </div>
+      <div class="hero-image">
+        <img src="profile.jpeg" alt="N Kumar Photo" />
+      </div>
+    </div>
 
     <section id="about">
-      <div class="section-title">About Me</div>
-      <p>
-        Hi, I am Nitesh Kumar— pursuing Ph.D. in Mechanical Engineering (Control & Automation) at Texas A&M University, specializing in autonomous systems, robotics, and intelligent control. I have extensive experience in motion planning, UAV scheduling, SLAM, and adaptive control, with proven real-time deployments on both drones and ground robots. My research has been published in IEEE Robotics & Automation Letters and AIAA SciTech, with ongoing work under review at IEEE Transactions on Intelligent Transportation Systems. I am passionate about developing robust and scalable robotic systems for autonomy in challenging real-world environments.
-      </p>
-      <p>
-        <strong>Skills:</strong> Python, C++, ROS, Julia, MATLAB, Robotics, Kalman Filter, Reinforcement Learning, Adaptive Control
-      </p>
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <p>
+          Hi, I am N Kumar— pursuing a Ph.D. in Mechanical Engineering (Control & Automation) at Texas A&M University, specializing in autonomous systems, robotics, and intelligent control. I have extensive experience in motion planning, UAV scheduling, SLAM, and adaptive control, with proven real-time deployments on both drones and ground robots.
+        </p>
+        <br>
+        <p>
+          My research has been published in IEEE Robotics & Automation Letters and AIAA SciTech, with ongoing work under review at IEEE Transactions on Intelligent Transportation Systems. I am passionate about developing robust and scalable robotic systems for autonomy in challenging real-world environments. <strong>I am actively seeking a Summer 2026 internship in the Bay Area, CA, focusing on autonomy and path planning.</strong>
+        </p>
+        <div class="skills-container">
+          <p><strong>Core Technical Skills:</strong> Python, C++, ROS, Julia, MATLAB, Robotics, Kalman Filter, Reinforcement Learning, Adaptive Control</p>
+        </div>
+      </div>
     </section>
 
     <section id="projects">
-      <div class="section-title">Highlighted Projects</div>
+      <h2 class="section-title">Highlighted Projects</h2>
       
-      <div class="card">
-        <h3>Path Planning and Navigation autonomous vehicles in GPS-denied environment <span style="float:right;font-size:0.7em;color:#555;">Dec 24 – Present</span></h3>
-        <ul>
-          <li>Developed two novel cooperative algorithms for motion and navigation for multi-robot teams.</li>
-          <li>Kalman filter based localization using relative measurements between robots and known landmarks.</li>
-          <li>Implemented real-time algorithm on two drones & one ground vehicle using ROS, navigating without GPS.</li>
-          <li><strong>Result:</strong> Conference paper accepted at <strong>AIAA SCITECH 2026</strong>.</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">ROS</span><span class="tag">Python</span><span class="tag">Kalman Filter</span> <span class="tag">Cooperative localization</span>
+      <div class="projects-grid">
+        
+        <div class="card">
+          <div class="card-header">
+            <h3>Path Planning and Navigation in GPS-Denied Environments</h3>
+            <span class="date-badge">Dec '24 – Present</span>
+          </div>
+          <div class="tags">
+            <span class="tag">ROS</span><span class="tag">Python</span><span class="tag">Kalman Filter</span><span class="tag">Cooperative Localization</span>
+          </div>
+          <ul>
+            <li>Developed two novel cooperative algorithms for motion and navigation for multi-robot teams.</li>
+            <li>Implemented Kalman filter-based localization using relative measurements between robots and known landmarks.</li>
+            <li>Deployed real-time algorithms on two drones & one ground vehicle using ROS, successfully navigating without GPS.</li>
+            <li><strong>Result:</strong> Conference paper accepted at <strong>AIAA SCITECH 2026</strong>.</li>
+          </ul>
+          <div class="media-container video-responsive">
+            <iframe src="https://www.youtube.com/embed/rZDhdDzilF0" allowfullscreen></iframe>
+          </div>
+          <a href="https://doi.org/10.2514/6.2026-1091" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> View AIAA Paper</a>
         </div>
-	<div class="video-responsive" style="margin-top:12px">
-  		<iframe src="https://www.youtube.com/embed/rZDhdDzilF0" frameborder="0" allowfullscreen></iframe>
-		</div>
-        <p><a href="https://doi.org/10.2514/6.2026-1091">View Paper (AIAA SCITECH 2026)</a></p>
-      </div>
 
-      <div class="card">
-        <h3>Persistent Robot Charging problem for long term autonomy <span style="float:right;font-size:0.7em;color:#555;">Oct 23 – Dec 2024</span></h3>
-        <ul>
-          <li>Reviewed literature on optimal charging schedules for UAVs.</li>
-          <li>Formulated ILP algorithm with Julia/IBM Cplex for optimal heterogeneous drone charging schedules.</li>
-          <li>Developed proof-of-concept for UAV charging stations to minimize human intervention.</li>
-          <li><strong>Result:</strong> Paper accepted at <strong>IEEE Robotics Automation Letters</strong>.</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Julia</span><span class="tag">IBM Cplex</span><span class="tag">Gurobi</span>
+        <div class="card">
+          <div class="card-header">
+            <h3>Persistent Robot Charging for Long-Term Autonomy</h3>
+            <span class="date-badge">Oct '23 – Dec '24</span>
+          </div>
+          <div class="tags">
+            <span class="tag">Julia</span><span class="tag">IBM Cplex</span><span class="tag">Gurobi</span>
+          </div>
+          <ul>
+            <li>Reviewed literature on optimal charging schedules for UAVs.</li>
+            <li>Formulated an ILP algorithm with Julia/IBM Cplex for optimal heterogeneous drone charging schedules.</li>
+            <li>Developed a proof-of-concept for UAV charging stations to minimize human intervention.</li>
+            <li><strong>Result:</strong> Paper accepted at <strong>IEEE Robotics Automation Letters</strong>.</li>
+          </ul>
+          <div class="gif-row">
+            <img src="subtour.gif" alt="Scheduling Demo 1" class="gif-demo">
+            <img src="battery_animation.gif" alt="Scheduling Demo 2" class="gif-demo">
+          </div>
+          <a href="https://ieeexplore.ieee.org/abstract/document/10819616" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> View IEEE Paper</a>
         </div>
-        <div class="gif-row">
-          <img src="subtour.gif" alt="Scheduling Demo 1" class="gif-demo">
-          <img src="battery_animation.gif" alt="Scheduling Demo 2" class="gif-demo">
-        </div>
-        <p><a href="https://ieeexplore.ieee.org/abstract/document/10819616">View Paper (IEEE RA-L)</a></p>
-      </div>
 
-      <div class="card">
-        <h3>Robust Lateral Control of autonomous vehicles <span style="float:right;font-size:0.7em;color:#555;">Oct 23 – Dec 2024</span></h3>
-        <ul>
-          <li>Created a robust lateral control algorithm for autonomous vehicles that adapts to unknown loads.</li>
-          <li>Ensured stable and accurate path tracking under various loading conditions using a new modeling approach.</li>
-          <li>Validated control performance with low tracking errors through simulation and ongoing publication.</li>
-          <li>Result: Paper under review at <strong>IEEE Transactions on Control Systems Technology (TCST).</strong>.</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Control</span>
-          <span class="tag">Robust</span>
-          <span class="tag">Autonomous Vehicles</span>
-          <span class="tag">Uncertainty</span>
-          <!-- <span class="tag">Stability</span> -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Robust Lateral Control of Autonomous Vehicles</h3>
+            <span class="date-badge">Oct '23 – Dec '24</span>
+          </div>
+          <div class="tags">
+            <span class="tag">Control</span><span class="tag">Robust</span><span class="tag">Autonomous Vehicles</span><span class="tag">Uncertainty</span>
+          </div>
+          <ul>
+            <li>Created a robust lateral control algorithm for autonomous vehicles that adapts to unknown loads.</li>
+            <li>Ensured stable and accurate path tracking under various loading conditions using a new modeling approach.</li>
+            <li>Validated control performance with low tracking errors through simulation and ongoing publication.</li>
+            <li><strong>Result:</strong> Paper under review at <strong>IEEE Transactions on Control Systems Technology (TCST)</strong>.</li>
+          </ul>
+          <img src="Robust Lateral Control.png" alt="Robust Lateral Control Diagram" class="project-image">
+          <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.173749950.05531697" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> View TechRxiv Preprint</a>
         </div>
-        <img src="Robust Lateral Control.png" alt="Descriptive text" class="project-image">
-        <p><a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.173749950.05531697">techrxiv(Paper under review)</a></p>
-      </div>
 
-      <div class="card">
-        <h3>Adaptive control design of a cable-driven upper arm soft exosuit <span style="float:right;font-size:0.7em;color:#555;">Jul 22 - Jul 23</span></h3>
-        <ul>
-          <li>Contributed to collaborative research, enhancing human arm strength with exosuits.</li>
-          <li>Built actuator powered by EC 60 Maxon Motor & Raspberry Pi.</li>
-          <li>Model-based Adaptive Gravity Compensation: <strong>63% reduction in metabolic cost.</strong></li>
-          <li>Developed RL & Kalman Filter controllers for user intent detection & adaptive assistance.</li>
-        </ul>
-        <div class="tags">
-          <span class="tag">Adaptive Control</span><span class="tag">Reinforcement Learning</span>
-          <span class="tag">Kalman Filter</span><span class="tag">Exosuit</span>
+        <div class="card">
+          <div class="card-header">
+            <h3>Adaptive Control Design of a Soft Exosuit</h3>
+            <span class="date-badge">Jul '22 – Jul '23</span>
+          </div>
+          <div class="tags">
+            <span class="tag">Adaptive Control</span><span class="tag">Reinforcement Learning</span><span class="tag">Kalman Filter</span><span class="tag">Exosuit</span>
+          </div>
+          <ul>
+            <li>Contributed to collaborative research, enhancing human arm strength with cable-driven upper arm soft exosuits.</li>
+            <li>Built an actuator powered by an EC 60 Maxon Motor & Raspberry Pi.</li>
+            <li>Implemented Model-based Adaptive Gravity Compensation resulting in a <strong>63% reduction in metabolic cost</strong>.</li>
+            <li>Developed RL & Kalman Filter controllers for user intent detection and adaptive assistance.</li>
+          </ul>
+          <div class="media-container video-responsive">
+            <video controls poster="exosuit_thumb.jpg">
+              <source src="exosuit4_version1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <a href="https://arxiv.org/abs/2304.14823" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> View arXiv Publication</a>
         </div>
-        <div class="video-responsive" style="margin-top:12px">
-          <video controls width="100%" poster="exosuit_thumb.jpg">
-            <source src="exosuit4_version1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <p><a href="https://arxiv.org/abs/2304.14823">arXiv version</a></p>
+
       </div>
     </section>
-    
+
     <section id="competitions">
-      <div class="section-title">Competitions</div>
-      <div class="competition">
-        <h3>SAE AutoDrive Challenge II - Year <span style="float:right;font-size:0.7em;color:#555;">Aug 24 – Jun 25</span></h3>
+      <h2 class="section-title">Competitions & Awards</h2>
+      
+      <div class="card competition-card">
+        <div class="card-header">
+          <h3>SAE AutoDrive Challenge II</h3>
+          <span class="date-badge">Aug '24 – Jun '25</span>
+        </div>
         <ul>
-          <li>Headed localization team for SAE AutoDrive II.</li>
-          <li>Implemented SLAM-based real-time localization using LiDAR data; enabled car navigation in GPS-denied environment.</li>
+          <li>Headed the localization team for the SAE AutoDrive II competition.</li>
+          <li>Implemented SLAM-based real-time localization using LiDAR data, enabling robust car navigation in GPS-denied environments.</li>
           <li><strong>Achieved overall 3rd position!</strong></li>
         </ul>
-        <div class="video-responsive" style="margin-top:12px">
-          <iframe src="https://www.youtube.com/embed/BqS50D5Te_U" frameborder="0" allowfullscreen></iframe>
+        <div class="media-container video-responsive" style="max-width: 600px; margin-top: 20px;">
+          <iframe src="https://www.youtube.com/embed/BqS50D5Te_U" allowfullscreen></iframe>
         </div>
-        <p><a href="https://www.youtube.com/watch?v=yfAE5uTY3LE">Learn more about the competition</a></p>
+        <p style="margin-top: 15px;">
+          <a href="https://www.youtube.com/watch?v=yfAE5uTY3LE" target="_blank"><strong><i class="fas fa-play-circle"></i> Learn more about the competition</strong></a>
+        </p>
       </div>
     </section>
-    
-    <section id="contact">
-      <div class="section-title">Contact</div>
-      <p>Let's connect! Reach out via these channels:</p>
-      <a href="mailto:niteshk@tamu.edu">Email</a> |
-      <a href="https://www.linkedin.com/in/nitesh-kumar-08349b135" target="_blank">LinkedIn</a> 
-      <!-- <a href="https://github.com/yourusername" target="_blank">GitHub</a> -->
-    </section>
-    
-    <footer style="margin-top:50px;text-align:center;font-size:0.9em;color:#aaa;">
-      &copy; 2025 Nitesh Kumar — Portfolio crafted with HTML & CSS
-    </footer>
+
   </div>
+
+  <footer id="contact" class="footer">
+    <div class="container" style="padding: 0;">
+      <h2>Let's Connect</h2>
+      <p style="margin-top: 10px; color: #D1D5DB;">Open to discussing robotics, research, and autonomy opportunities.</p>
+      
+      <div class="social-links">
+        <a href="mailto:niteshk@tamu.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/nitesh-kumar-08349b135" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      
+      <p class="copyright">&copy; 2026 N Kumar — Designed for Robotics & Autonomous Systems</p>
+    </div>
+  </footer>
+
 </body>
 </html>
