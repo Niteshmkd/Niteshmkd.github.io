@@ -4,14 +4,69 @@
   <meta charset="UTF-8" />
   <title>Nitesh Kumar | Robotics Portfolio</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Montserrat', sans-serif; background: #fafcff; color: #222; margin: 0; }
-    a { color: #1366d6; text-decoration: none; }
-    .container { max-width: 900px; margin: 0 auto; padding: 32px; }
-    header { text-align: center; padding: 24px 0 16px 0; }
-    header h1 { margin: 0; font-size: 2.6em; font-weight: 700; }
-    header span { font-size: 1.2em; color: #1366d6; }
+    :root {
+      --ink: #132338;
+      --subtle: #4a5d74;
+      --primary: #0f8a7f;
+      --primary-soft: #d9f4ef;
+      --surface: #ffffff;
+      --surface-alt: #f4f9ff;
+      --line: #d9e6f2;
+      --shadow: 0 10px 26px rgba(16, 58, 94, 0.1);
+    }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, #eaf6ff 0, rgba(234,246,255,0.4) 30%, transparent 62%),
+        radial-gradient(circle at 85% 22%, #e3fff7 0, rgba(227,255,247,0.45) 28%, transparent 56%),
+        #f7fbff;
+      color: var(--ink);
+      margin: 0;
+    }
+    a { color: #1262b8; text-decoration: none; }
+    .container { max-width: 1020px; margin: 0 auto; padding: 28px; }
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      padding: 10px 12px;
+      margin-bottom: 22px;
+    }
+    .top-nav a {
+      font-weight: 700;
+      color: #32557a;
+      font-size: 0.95em;
+    }
+    .top-nav a:hover { color: var(--primary); }
+    header {
+      text-align: center;
+      padding: 30px 24px 18px 24px;
+      background: linear-gradient(135deg, #f9fdff 0%, #f2fbff 46%, #edfff9 100%);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    header h1 { margin: 0; font-size: 2.8em; font-weight: 800; letter-spacing: -0.02em; }
+    header span {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 1.1em;
+      color: #0f6b63;
+      background: var(--primary-soft);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 700;
+    }
     /* --- Photo Style --- */
     #profile-photo {
       width: 300px;
@@ -21,19 +76,96 @@
       border-radius: 70%;
       border: 1px solid #fafcfe;
       margin-bottom: 8px;
-      box-shadow: 0 2px 10px rgba(30,80,150,0.11);
+      box-shadow: 0 8px 24px rgba(30,80,150,0.16);
     }
-    .section-title { font-size: 1.7em; margin-top: 48px; margin-bottom:16px; border-bottom: 2px solid #eee; display:inline-block }
-    #about p { margin: 0 0 24px 0; }
-    .card { background: #fff; box-shadow: 0 2px 8px rgba(30,80,150,0.08); border-radius: 12px; padding: 18px 22px 18px 22px; margin-bottom: 22px; transition: box-shadow .2s;}
-    .card:hover { box-shadow: 0 4px 20px rgba(30,80,150,0.18);}
+    .hero-note {
+      max-width: 780px;
+      margin: 10px auto 0 auto;
+      color: var(--subtle);
+      line-height: 1.6;
+      font-size: 1.02em;
+    }
+    .section-title {
+      font-size: 1.55em;
+      margin-top: 42px;
+      margin-bottom: 14px;
+      border-bottom: 3px solid #d6e8fa;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+    #about p { margin: 0 0 18px 0; color: #223a53; line-height: 1.7; }
+    .snapshot {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 18px;
+      box-shadow: var(--shadow);
+    }
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .snapshot-item {
+      background: var(--surface-alt);
+      border: 1px solid #dce9f4;
+      border-radius: 12px;
+      text-align: center;
+      padding: 12px 10px;
+    }
+    .snapshot-item .kpi {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.3em;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .snapshot-item .label {
+      font-size: 0.84em;
+      color: #3a5878;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .card {
+      background: #fff;
+      box-shadow: var(--shadow);
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      border-top: 4px solid #b4d8ff;
+      padding: 18px 22px 18px 22px;
+      margin-bottom: 22px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(28, 82, 130, 0.16); }
     .card ul { padding-left: 20px; margin:0 }
-    .tags { margin: 10px 0 0 0;}
-    .tag { display:inline-block; background: #88bcff; color: #fff; padding:3px 9px; margin:0 6px 6px 0; border-radius: 7px; font-size:0.9em}
+    .card h3 { margin-top: 0; margin-bottom: 10px; }
+    .tags { margin: 12px 0 0 0;}
+    .tag {
+      display:inline-block;
+      background: #e8f3ff;
+      color: #1b4f86;
+      border: 1px solid #cde2f8;
+      font-weight: 700;
+      padding:4px 10px;
+      margin:0 6px 6px 0;
+      border-radius: 999px;
+      font-size:0.82em;
+    }
     .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;}
     .video-responsive iframe { position: absolute; top:0; left:0; width:100%; height:100%; border-radius: 8px;}
     /* Competition highlight */
-    .competition { border-left: 8px solid #1366d6; background: #EFF6FB; padding:18px 22px; border-radius: 12px; margin-bottom:24px }
+    .competition {
+      border-left: 8px solid var(--primary);
+      background: linear-gradient(110deg, #f3fffb 0%, #eff6ff 100%);
+      border: 1px solid var(--line);
+      padding:18px 22px;
+      border-radius: 14px;
+      margin-bottom:24px;
+      box-shadow: var(--shadow);
+    }
     .competition h3 {margin-top:0;}
     /* Contact */
     #contact { text-align:center; padding:24px; }
@@ -44,8 +176,15 @@
     .timeline .event::before {content:""; position:absolute; left:-30px; top:8px; width:13px; height:13px; background:#1366d6; border-radius:19px;}
     @media (max-width:700px){
       .container {padding: 10px;}
+      .top-nav {
+        gap: 12px;
+        flex-wrap: wrap;
+        position: static;
+      }
       .section-title {font-size:1.3em}
-      #profile-photo {width:90px;height:90px;}
+      #profile-photo {width:110px;height:110px;}
+      header h1 { font-size: 2.1em; }
+      .snapshot-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
     }
 
     .gif-row {
@@ -106,18 +245,37 @@
 </head>
 <body>
   <div class="container">
+    <nav class="top-nav">
+      <a href="#about">About</a>
+      <a href="#competitions">Competition</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
     <header>
       <!-- Insert your photo below, make sure the filename matches -->
       <img src="profile.jpeg" alt="Your Name Photo" id="profile-photo" />
       <h1>Nitesh Kumar</h1>
       <span>Robotics & Autonomous Systems Engineer</span>
-      <p style="margin-top:8px;color:#555;">
-        Inventing robust algorithms for autonomy in uncertain environments
+      <p class="hero-note">
+        Ph.D. researcher building reliable autonomy for GPS-denied environments with proven deployment in real-world robotic platforms.
       </p>
     </header>
 
     <section id="about">
       <div class="section-title">About Me</div>
+      <div class="snapshot">
+        <strong>Recruiter Snapshot</strong>
+        <div class="snapshot-grid">
+          <div class="snapshot-item"><span class="kpi">3rd</span><span class="label">SAE AutoDrive 2025</span></div>
+          <div class="snapshot-item"><span class="kpi">PhD</span><span class="label">Texas A&amp;M University</span></div>
+          <div class="snapshot-item"><span class="kpi">ROS 2</span><span class="label">Real-Time Robotics</span></div>
+          <div class="snapshot-item"><span class="kpi">RL + SLAM</span><span class="label">Core Research Areas</span></div>
+        </div>
+      </div>
+      <p style="margin-top:18px;">
+        I design and deploy autonomy algorithms that are robust, scalable, and practical for uncertainty-heavy robotic missions.
+      </p>
       <p>
         Hi, I am Nitesh Kumar— pursuing Ph.D. in Mechanical Engineering (Control & Automation) at Texas A&M University, specializing in autonomous systems, robotics, and intelligent control. I have extensive experience in motion planning, UAV scheduling, SLAM, and adaptive control, with proven real-time deployments on both drones and ground robots. My research has been published in IEEE Robotics & Automation Letters and AIAA SciTech, with ongoing work under review at IEEE Transactions on Intelligent Transportation Systems. I am passionate about developing robust and scalable robotic systems for autonomy in challenging real-world environments.
       </p>
@@ -140,7 +298,7 @@
           <iframe src="https://www.youtube.com/embed/BqS50D5Te_U?autoplay=1&mute=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <div class="video-responsive" style="margin-top:12px">
-          <iframe src="https://youtu.be/bfNxKkoqkPg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/bfNxKkoqkPg?autoplay=1&mute=1&playsinline=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
         <p><a href="https://www.youtube.com/watch?v=yfAE5uTY3LE">Learn more about the competition</a></p>
       </div>
