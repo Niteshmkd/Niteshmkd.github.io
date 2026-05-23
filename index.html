@@ -1190,25 +1190,22 @@
         </a>
       </div>
 
-      <!-- Robust Lateral Control (track1 veh_e) -->
+      <!-- Robust Lateral Control -->
       <div class="proj-card reveal" id="proj-lateral">
         <div class="proj-header">
           <div>
-            <h3>Longitudinal-Motion-Aware Robust Nonlinear Lateral Control for Autonomous Vehicles</h3>
+            <h3>Robust Lateral Control of Autonomous Vehicles</h3>
             <p class="proj-date">Oct 2023 – Dec 2024 · Texas A&amp;M</p>
           </div>
           <span class="proj-type-badge">Under Review</span>
         </div>
         <ul>
-          <li>Derived a tracking error model that explicitly captures the effects of varying longitudinal speed and acceleration, addressing limitations of constant-speed assumptions prevalent in existing lateral controllers.</li>
-          <li>Employed <strong>feedback linearization</strong> to obtain a linear input–output relation for lateral error tracking while embedding longitudinal motion dynamics into the control law.</li>
-          <li>Analyzed the resulting internal dynamics to guarantee overall system stability during transient longitudinal maneuvers.</li>
-          <li>Proposed two robust control designs for parameter uncertainty: a <strong>Lyapunov Redesign (LR)</strong> approach inspired by sliding mode control, and an <strong>Incremental Nonlinear Dynamic Inversion (INDI)</strong> method — both proven to ensure ultimate boundedness.</li>
-          <li>Validated via simulations demonstrating enhanced tracking accuracy, consistent performance across varying speeds and accelerations, and robustness to model uncertainties.</li>
-          <li>Confirmed real-time implementation and practical path-tracking performance through <strong>real-vehicle tests</strong> on actual hardware. Paper under review at <strong>IEEE T-CST</strong>.</li>
+          <li>Created a robust lateral control algorithm for autonomous vehicles that adapts to unknown loads.</li>
+          <li>Ensured stable and accurate path tracking under various loading conditions via a novel modeling approach.</li>
+          <li>Validated with low tracking errors through simulation. Paper under review at <strong>IEEE T-CST</strong>.</li>
         </ul>
         <div class="proj-tags">
-          <span class="tag">Feedback Linearization</span><span class="tag">INDI</span><span class="tag">Lyapunov Redesign</span><span class="tag">Robust Control</span><span class="tag">Autonomous Vehicles</span><span class="tag">Nonlinear Control</span><span class="tag">Uncertainty</span>
+          <span class="tag">Robust Control</span><span class="tag">Autonomous Vehicles</span><span class="tag">Uncertainty</span>
         </div>
         <div class="proj-media">
           <img src="Robust Lateral Control.png" alt="Robust lateral control simulation results" style="border-radius:8px; width:100%;">
@@ -1217,6 +1214,55 @@
           TechRxiv (Under Review)
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
         </a>
+      </div>
+
+      <!-- Longitudinal-Motion-Aware Robust Nonlinear Lateral Control (NEW) -->
+      <div class="proj-card reveal" id="proj-veh-lateral" style="grid-column: 1 / -1;">
+        <div class="proj-header">
+          <div>
+            <h3>Longitudinal-Motion-Aware Robust Nonlinear Lateral Control for Autonomous Vehicles</h3>
+            <p class="proj-date">Oct 2023 – Dec 2024 · Texas A&amp;M</p>
+          </div>
+          <span class="proj-type-badge" style="color:var(--accent-4);background:rgba(246,173,85,0.1);border-color:rgba(246,173,85,0.3);">Under Review</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
+          <ul>
+            <li>Derived a tracking error model that explicitly captures varying longitudinal speed and acceleration, addressing constant-speed assumptions in existing lateral controllers.</li>
+            <li>Employed <strong>feedback linearization</strong> to obtain a linear input–output relation for lateral error tracking while embedding longitudinal motion into the control law.</li>
+            <li>Analyzed the resulting internal dynamics to guarantee overall system stability during transient longitudinal maneuvers.</li>
+            <li>Proposed two robust control designs for parametric uncertainty: a <strong>Lyapunov Redesign (LR)</strong> approach inspired by sliding mode control, and an <strong>Incremental Nonlinear Dynamic Inversion (INDI)</strong> method — both rigorously proven to ensure ultimate boundedness.</li>
+            <li>Simulations demonstrate enhanced tracking accuracy, consistent performance across varying speeds/accelerations, and robustness to model uncertainties.</li>
+            <li>Real-vehicle tests confirm real-time implementation and practical path-tracking on actual hardware. Paper under review at <strong>IEEE T-CST</strong>.</li>
+          </ul>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <img src="track1.jpg" alt="Track 1 test path" style="border-radius:8px;width:100%;object-fit:cover;height:130px;border:1px solid var(--border);">
+                <span style="font-size:0.7rem;color:var(--text-3);text-align:center;font-family:var(--font-mono);">Track 1</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <img src="veh_e.jpg" alt="Vehicle E platform" style="border-radius:8px;width:100%;object-fit:cover;height:130px;border:1px solid var(--border);">
+                <span style="font-size:0.7rem;color:var(--text-3);text-align:center;font-family:var(--font-mono);">veh_e</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;">
+                <img src="vehicle.jpg" alt="Autonomous vehicle hardware" style="border-radius:8px;width:100%;object-fit:cover;height:130px;border:1px solid var(--border);">
+                <span style="font-size:0.7rem;color:var(--text-3);text-align:center;font-family:var(--font-mono);">Vehicle</span>
+              </div>
+            </div>
+            <div class="proj-media">
+              <img src="Robust Lateral Control.png" alt="Simulation results" style="border-radius:8px;width:100%;">
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+          <div class="proj-tags">
+            <span class="tag">Feedback Linearization</span><span class="tag">INDI</span><span class="tag">Lyapunov Redesign</span><span class="tag">Robust Control</span><span class="tag">Autonomous Vehicles</span><span class="tag">Nonlinear Control</span><span class="tag">Parametric Uncertainty</span>
+          </div>
+          <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.173749950.05531697" target="_blank" rel="noopener" class="proj-link" id="proj-veh-lateral-techrxiv" style="margin-left:auto;">
+            TechRxiv Preprint
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          </a>
+        </div>
       </div>
 
     </div>
