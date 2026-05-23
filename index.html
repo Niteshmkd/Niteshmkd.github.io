@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nitesh Kumar | Robotics & Autonomous Systems</title>
-  <meta name="description" content="Nitesh Kumar – Ph.D. Researcher in Robotics & Autonomous Systems at Texas A&M University. Specializing in SLAM, RL, cooperative localization, and adaptive control." />
+  <meta name="description"
+    content="Nitesh Kumar – Ph.D. Researcher in Robotics & Autonomous Systems at Texas A&M University. Specializing in SLAM, RL, cooperative localization, and adaptive control." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
   <style>
     /* ================================================
        DESIGN TOKENS
     ================================================ */
     :root {
-      --bg:         #080c14;
-      --bg-2:       #0d1321;
-      --bg-3:       #111827;
-      --surface:    rgba(255,255,255,0.04);
-      --surface-hover: rgba(255,255,255,0.07);
-      --border:     rgba(255,255,255,0.08);
-      --border-glow: rgba(99,179,237,0.35);
+      --bg: #080c14;
+      --bg-2: #0d1321;
+      --bg-3: #111827;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-hover: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-glow: rgba(99, 179, 237, 0.35);
 
-      --accent-1:   #63b3ed;   /* sky blue   */
-      --accent-2:   #4fd1c5;   /* teal       */
-      --accent-3:   #a78bfa;   /* violet     */
-      --accent-4:   #f6ad55;   /* amber      */
+      --accent-1: #63b3ed;
+      /* sky blue   */
+      --accent-2: #4fd1c5;
+      /* teal       */
+      --accent-3: #a78bfa;
+      /* violet     */
+      --accent-4: #f6ad55;
+      /* amber      */
 
-      --text-1:     #f0f6ff;
-      --text-2:     #94a3b8;
-      --text-3:     #64748b;
+      --text-1: #f0f6ff;
+      --text-2: #94a3b8;
+      --text-3: #64748b;
 
-      --font-sans:  'Inter', sans-serif;
-      --font-mono:  'JetBrains Mono', monospace;
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
 
-      --radius-sm:  8px;
-      --radius-md:  14px;
-      --radius-lg:  22px;
-      --radius-xl:  32px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-xl: 32px;
 
-      --shadow-sm:  0 4px 16px rgba(0,0,0,0.35);
-      --shadow-md:  0 8px 40px rgba(0,0,0,0.5);
-      --shadow-lg:  0 20px 60px rgba(0,0,0,0.6);
+      --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 8px 40px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
 
     /* ================================================
        RESET / BASE
     ================================================ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: var(--font-sans);
       background: var(--bg);
@@ -55,10 +73,27 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    a { color: var(--accent-1); text-decoration: none; transition: color .2s; }
-    a:hover { color: var(--accent-2); }
-    ul { list-style: none; padding: 0; }
-    img, video { display: block; max-width: 100%; }
+
+    a {
+      color: var(--accent-1);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    a:hover {
+      color: var(--accent-2);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
 
     /* ================================================
        ANIMATED BACKGROUND MESH
@@ -70,26 +105,36 @@
       overflow: hidden;
       pointer-events: none;
     }
+
     .bg-mesh::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 15% 15%, rgba(99,179,237,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(79,209,197,0.06) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 70% at 50% 50%, rgba(167,139,250,0.04) 0%, transparent 65%);
+        radial-gradient(ellipse 80% 60% at 15% 15%, rgba(99, 179, 237, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(79, 209, 197, 0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 70% at 50% 50%, rgba(167, 139, 250, 0.04) 0%, transparent 65%);
       animation: meshPulse 8s ease-in-out infinite alternate;
     }
+
     @keyframes meshPulse {
-      from { opacity: .6; transform: scale(1); }
-      to   { opacity: 1;  transform: scale(1.04); }
+      from {
+        opacity: .6;
+        transform: scale(1);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1.04);
+      }
     }
+
     .grid-lines {
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
       background-size: 56px 56px;
     }
 
@@ -98,17 +143,20 @@
     ================================================ */
     nav#nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 16px 5vw;
-      background: rgba(8,12,20,0.7);
+      background: rgba(8, 12, 20, 0.7);
       backdrop-filter: blur(18px) saturate(1.4);
       border-bottom: 1px solid var(--border);
       transition: background .3s;
     }
+
     .nav-logo {
       font-weight: 800;
       font-size: 1.1rem;
@@ -118,10 +166,12 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .nav-links {
       display: flex;
       gap: 8px;
     }
+
     .nav-links a {
       color: var(--text-2);
       font-size: 0.88rem;
@@ -130,6 +180,7 @@
       border-radius: 999px;
       transition: all .2s;
     }
+
     .nav-links a:hover {
       color: var(--text-1);
       background: var(--surface-hover);
@@ -145,6 +196,7 @@
       padding: 120px 5vw 80px 5vw;
       position: relative;
     }
+
     .hero-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -154,12 +206,13 @@
       align-items: center;
       width: 100%;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(99,179,237,0.1);
-      border: 1px solid rgba(99,179,237,0.25);
+      background: rgba(99, 179, 237, 0.1);
+      border: 1px solid rgba(99, 179, 237, 0.25);
       border-radius: 999px;
       padding: 6px 16px;
       font-size: 0.8rem;
@@ -168,6 +221,7 @@
       margin-bottom: 24px;
       letter-spacing: 0.04em;
     }
+
     .hero-badge .dot {
       width: 7px;
       height: 7px;
@@ -175,7 +229,19 @@
       border-radius: 50%;
       animation: blink 2s ease-in-out infinite;
     }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.3
+      }
+    }
+
     .hero-name {
       font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 900;
@@ -183,18 +249,21 @@
       line-height: 1.05;
       margin-bottom: 16px;
     }
+
     .hero-name .gradient-text {
       background: linear-gradient(90deg, var(--accent-1) 0%, var(--accent-2) 60%, var(--accent-3) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+
     .hero-title {
       font-size: 1.2rem;
       font-weight: 500;
       color: var(--text-2);
       margin-bottom: 24px;
     }
+
     .hero-desc {
       font-size: 1.02rem;
       color: var(--text-2);
@@ -202,11 +271,13 @@
       line-height: 1.75;
       margin-bottom: 36px;
     }
+
     .hero-cta {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
     }
+
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -218,13 +289,15 @@
       padding: 13px 26px;
       border-radius: 999px;
       transition: all .25s;
-      box-shadow: 0 0 24px rgba(99,179,237,0.25);
+      box-shadow: 0 0 24px rgba(99, 179, 237, 0.25);
     }
+
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 40px rgba(99,179,237,0.45);
+      box-shadow: 0 0 40px rgba(99, 179, 237, 0.45);
       color: #0d1321;
     }
+
     .btn-secondary {
       display: inline-flex;
       align-items: center;
@@ -238,6 +311,7 @@
       border-radius: 999px;
       transition: all .25s;
     }
+
     .btn-secondary:hover {
       background: var(--surface-hover);
       border-color: var(--accent-1);
@@ -257,6 +331,7 @@
       box-shadow: var(--shadow-md);
       backdrop-filter: blur(10px);
     }
+
     .hero-card::before {
       content: '';
       position: absolute;
@@ -264,9 +339,10 @@
       left: -40%;
       width: 180%;
       height: 180%;
-      background: radial-gradient(ellipse at center, rgba(99,179,237,0.07), transparent 65%);
+      background: radial-gradient(ellipse at center, rgba(99, 179, 237, 0.07), transparent 65%);
       pointer-events: none;
     }
+
     .profile-img {
       width: 160px;
       height: 160px;
@@ -274,33 +350,38 @@
       object-fit: cover;
       border: 3px solid transparent;
       background: linear-gradient(var(--bg), var(--bg)) padding-box,
-                  linear-gradient(135deg, var(--accent-1), var(--accent-2)) border-box;
+        linear-gradient(135deg, var(--accent-1), var(--accent-2)) border-box;
       margin: 0 auto 20px auto;
-      box-shadow: 0 0 40px rgba(99,179,237,0.2);
+      box-shadow: 0 0 40px rgba(99, 179, 237, 0.2);
     }
+
     .hero-card h2 {
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 4px;
     }
+
     .hero-card .card-subtitle {
       font-size: 0.82rem;
       color: var(--accent-2);
       font-weight: 600;
       margin-bottom: 20px;
     }
+
     .stat-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
       margin-top: 16px;
     }
+
     .stat-box {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 12px;
     }
+
     .stat-box .kpi {
       display: block;
       font-family: var(--font-mono);
@@ -308,6 +389,7 @@
       font-weight: 700;
       color: var(--accent-1);
     }
+
     .stat-box .label {
       font-size: 0.7rem;
       font-weight: 700;
@@ -323,6 +405,7 @@
       justify-content: center;
       margin-top: 18px;
     }
+
     .social-btn {
       display: inline-flex;
       align-items: center;
@@ -336,6 +419,7 @@
       border-radius: 999px;
       transition: all .2s;
     }
+
     .social-btn:hover {
       border-color: var(--accent-1);
       color: var(--accent-1);
@@ -347,10 +431,12 @@
     .section {
       padding: 90px 5vw;
     }
+
     .section-inner {
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .section-label {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -360,12 +446,14 @@
       text-transform: uppercase;
       margin-bottom: 10px;
     }
+
     .section-title {
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 14px;
     }
+
     .section-subtitle {
       color: var(--text-2);
       font-size: 1.02rem;
@@ -377,24 +465,33 @@
     /* ================================================
        ABOUT
     ================================================ */
-    #about { background: var(--bg-2); }
+    #about {
+      background: var(--bg-2);
+    }
+
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       align-items: start;
     }
+
     .about-text p {
       color: var(--text-2);
       line-height: 1.8;
       margin-bottom: 16px;
     }
-    .about-text strong { color: var(--text-1); }
+
+    .about-text strong {
+      color: var(--text-1);
+    }
+
     .publication-list {
       display: flex;
       flex-direction: column;
       gap: 14px;
     }
+
     .pub-item {
       display: flex;
       align-items: flex-start;
@@ -405,7 +502,11 @@
       padding: 16px;
       transition: border-color .2s;
     }
-    .pub-item:hover { border-color: var(--accent-1); }
+
+    .pub-item:hover {
+      border-color: var(--accent-1);
+    }
+
     .pub-icon {
       width: 36px;
       height: 36px;
@@ -417,6 +518,7 @@
       flex-shrink: 0;
       font-size: 1rem;
     }
+
     .pub-info .pub-venue {
       font-size: 0.72rem;
       font-weight: 700;
@@ -424,11 +526,13 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
+
     .pub-info .pub-title {
       font-size: 0.88rem;
       color: var(--text-1);
       margin-top: 2px;
     }
+
     .pub-info .pub-status {
       font-size: 0.72rem;
       color: var(--text-3);
@@ -438,12 +542,16 @@
     /* ================================================
        SKILLS
     ================================================ */
-    #skills { background: var(--bg); }
+    #skills {
+      background: var(--bg);
+    }
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
+
     .skill-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -451,28 +559,33 @@
       padding: 24px;
       transition: all .25s;
     }
+
     .skill-card:hover {
       border-color: var(--border-glow);
       transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(99,179,237,0.1);
+      box-shadow: 0 12px 40px rgba(99, 179, 237, 0.1);
     }
+
     .skill-card-icon {
       font-size: 1.8rem;
       margin-bottom: 12px;
     }
+
     .skill-card h3 {
       font-size: 0.95rem;
       font-weight: 700;
       margin-bottom: 12px;
       color: var(--text-1);
     }
+
     .skill-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
+
     .chip {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
       color: var(--text-2);
       font-size: 0.75rem;
@@ -485,7 +598,10 @@
     /* ================================================
        COMPETITION HIGHLIGHT
     ================================================ */
-    #competitions { background: var(--bg-3); }
+    #competitions {
+      background: var(--bg-3);
+    }
+
     .comp-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -495,19 +611,23 @@
       overflow: hidden;
       box-shadow: var(--shadow-md);
     }
+
     .comp-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
     }
+
     .comp-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(246,173,85,0.12);
-      border: 1px solid rgba(246,173,85,0.3);
+      background: rgba(246, 173, 85, 0.12);
+      border: 1px solid rgba(246, 173, 85, 0.3);
       color: var(--accent-4);
       font-size: 0.8rem;
       font-weight: 700;
@@ -515,18 +635,21 @@
       border-radius: 999px;
       margin-bottom: 20px;
     }
+
     .comp-card h2 {
       font-size: 1.7rem;
       font-weight: 800;
       margin-bottom: 8px;
       letter-spacing: -0.02em;
     }
+
     .comp-date {
       font-size: 0.82rem;
       color: var(--text-3);
       margin-bottom: 20px;
       font-family: var(--font-mono);
     }
+
     .comp-card ul {
       list-style: none;
       padding: 0;
@@ -534,6 +657,7 @@
       flex-direction: column;
       gap: 10px;
     }
+
     .comp-card ul li {
       display: flex;
       align-items: flex-start;
@@ -542,18 +666,21 @@
       font-size: 0.95rem;
       line-height: 1.6;
     }
+
     .comp-card ul li::before {
       content: '▸';
       color: var(--accent-2);
       flex-shrink: 0;
       margin-top: 1px;
     }
+
     .comp-videos {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
       margin-top: 28px;
     }
+
     .video-wrap {
       position: relative;
       padding-bottom: 56.25%;
@@ -562,23 +689,30 @@
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
     }
+
     .video-wrap iframe,
     .video-wrap video {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       border: none;
     }
 
     /* ================================================
        PROJECTS
     ================================================ */
-    #projects { background: var(--bg-2); }
+    #projects {
+      background: var(--bg-2);
+    }
+
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
     }
+
     .proj-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -591,54 +725,67 @@
       position: relative;
       overflow: hidden;
     }
+
     .proj-card::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0; right: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
       opacity: 0;
       transition: opacity .3s;
     }
+
     .proj-card:hover {
       border-color: var(--border-glow);
       transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(99,179,237,0.12);
+      box-shadow: 0 16px 48px rgba(99, 179, 237, 0.12);
     }
-    .proj-card:hover::after { opacity: 1; }
+
+    .proj-card:hover::after {
+      opacity: 1;
+    }
+
     .proj-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
     }
+
     .proj-type-badge {
       font-size: 0.7rem;
       font-weight: 700;
       color: var(--accent-3);
-      background: rgba(167,139,250,0.1);
-      border: 1px solid rgba(167,139,250,0.25);
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.25);
       padding: 3px 10px;
       border-radius: 999px;
       white-space: nowrap;
       flex-shrink: 0;
     }
+
     .proj-card h3 {
       font-size: 1.05rem;
       font-weight: 700;
       line-height: 1.4;
       color: var(--text-1);
     }
+
     .proj-date {
       font-family: var(--font-mono);
       font-size: 0.72rem;
       color: var(--text-3);
     }
+
     .proj-card ul {
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
+
     .proj-card ul li {
       display: flex;
       align-items: flex-start;
@@ -647,6 +794,7 @@
       color: var(--text-2);
       line-height: 1.55;
     }
+
     .proj-card ul li::before {
       content: '→';
       color: var(--accent-1);
@@ -654,13 +802,15 @@
       font-size: 0.8rem;
       margin-top: 2px;
     }
+
     .proj-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
     }
+
     .tag {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       color: var(--text-3);
       font-size: 0.72rem;
@@ -669,11 +819,13 @@
       border-radius: 6px;
       font-family: var(--font-mono);
     }
+
     .proj-media {
       border-radius: var(--radius-sm);
       overflow: hidden;
       border: 1px solid var(--border);
     }
+
     .proj-link {
       display: inline-flex;
       align-items: center;
@@ -681,22 +833,29 @@
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--accent-1);
-      border: 1px solid rgba(99,179,237,0.25);
+      border: 1px solid rgba(99, 179, 237, 0.25);
       border-radius: 999px;
       padding: 6px 14px;
       transition: all .2s;
       width: fit-content;
     }
+
     .proj-link:hover {
-      background: rgba(99,179,237,0.1);
+      background: rgba(99, 179, 237, 0.1);
       color: var(--accent-1);
     }
-    .proj-link svg { width: 13px; height: 13px; }
+
+    .proj-link svg {
+      width: 13px;
+      height: 13px;
+    }
+
     .gif-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
+
     .gif-row img {
       border-radius: var(--radius-sm);
       width: 100%;
@@ -711,6 +870,7 @@
       background: var(--bg);
       text-align: center;
     }
+
     .contact-box {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -721,24 +881,30 @@
       position: relative;
       overflow: hidden;
     }
+
     .contact-box::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
     }
+
     .contact-box h2 {
       font-size: 2rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
     }
+
     .contact-box p {
       color: var(--text-2);
       margin-bottom: 36px;
       font-size: 1rem;
     }
+
     .contact-btns {
       display: flex;
       gap: 14px;
@@ -757,7 +923,10 @@
       color: var(--text-3);
       background: var(--bg);
     }
-    footer span { color: var(--accent-1); }
+
+    footer span {
+      color: var(--accent-1);
+    }
 
     /* ================================================
        SCROLL REVEAL
@@ -767,6 +936,7 @@
       transform: translateY(30px);
       transition: opacity .65s ease, transform .65s ease;
     }
+
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
@@ -776,560 +946,678 @@
        RESPONSIVE
     ================================================ */
     @media (max-width: 1000px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-card { max-width: 420px; margin: 0 auto; }
-      .hero-name { font-size: 2.6rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .projects-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .comp-videos { grid-template-columns: 1fr; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+
+      .hero-name {
+        font-size: 2.6rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .comp-videos {
+        grid-template-columns: 1fr;
+      }
     }
+
     @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .section { padding: 60px 5vw; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .comp-card { padding: 24px 20px; }
-      .contact-box { padding: 36px 20px; }
-      .hero-cta { flex-direction: column; align-items: flex-start; }
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 60px 5vw;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comp-card {
+        padding: 24px 20px;
+      }
+
+      .contact-box {
+        padding: 36px 20px;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- Animated Background -->
-<div class="bg-mesh" aria-hidden="true">
-  <div class="grid-lines"></div>
-</div>
-
-<!-- ==================== NAV ==================== -->
-<nav id="nav" role="navigation">
-  <span class="nav-logo">NK.</span>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#competitions">Competition</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+  <!-- Animated Background -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="grid-lines"></div>
   </div>
-</nav>
 
-<!-- ==================== HERO ==================== -->
-<section id="hero" aria-label="Introduction">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge"><span class="dot"></span> Ph.D. Researcher · Texas A&M University</div>
-      <h1 class="hero-name">
-        Nitesh<br />
-        <span class="gradient-text">Kumar</span>
-      </h1>
-      <p class="hero-title">Robotics &amp; Autonomous Systems Engineer</p>
-      <p class="hero-desc">
-        Ph.D. researcher designing intelligent algorithms that make robots reliable in the real world — through estimation, control, planning, and learning. With published work in top IEEE and AIAA venues and hands-on deployment on physical platforms.
-      </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          View Projects
-        </a>
-        <a href="mailto:niteshk@tamu.edu" class="btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          Get in Touch
-        </a>
-      </div>
+  <!-- ==================== NAV ==================== -->
+  <nav id="nav" role="navigation">
+    <span class="nav-logo">NK.</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#competitions">Competition</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
+  </nav>
 
-    <div class="hero-card">
-      <img src="profile.jpeg" alt="Nitesh Kumar" class="profile-img" />
-      <h2>Nitesh Kumar</h2>
-      <p class="card-subtitle">Ph.D. Mechanical Engineering</p>
-
-      <div class="social-row">
-        <a href="mailto:niteshk@tamu.edu" class="social-btn" id="hero-email-btn">✉ Email</a>
-        <a href="https://www.linkedin.com/in/nitesh-kumar-08349b135" target="_blank" rel="noopener" class="social-btn" id="hero-linkedin-btn">in LinkedIn</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== ABOUT ==================== -->
-<section id="about" class="section" aria-label="About Me">
-  <div class="section-inner">
-    <p class="section-label">// about</p>
-    <h2 class="section-title">Who I Am</h2>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>
-          I'm a <strong>Ph.D. researcher</strong> in Mechanical Engineering (Control &amp; Automation) at <strong>Texas A&amp;M University</strong>, specializing in autonomous systems, robotics, and intelligent control.
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" aria-label="Introduction">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge"><span class="dot"></span> Ph.D. Researcher · Texas A&M University</div>
+        <h1 class="hero-name">
+          Nitesh<br />
+          <span class="gradient-text">Kumar</span>
+        </h1>
+        <p class="hero-title">Robotics &amp; Autonomous Systems Engineer</p>
+        <p class="hero-desc">
+          Ph.D. researcher designing intelligent algorithms that make robots reliable in the real world — through
+          estimation, control, planning, and learning. With published work in top IEEE and AIAA venues and hands-on
+          deployment on physical platforms.
         </p>
-        <p>
-          My work spans motion planning, UAV scheduling, SLAM, and adaptive control — with hands-on real-time deployments on both drones and ground vehicles. I focus on building algorithms that are <strong>robust, scalable, and practical</strong> for uncertainty-heavy robotic missions in GPS-denied environments.
-        </p>
-        <p>
-          I've contributed to research published in <strong>IEEE Robotics &amp; Automation Letters</strong> and <strong>AIAA SciTech</strong>, with further work currently under review at IEEE Transactions on Intelligent Transportation Systems.
-        </p>
-      </div>
-      <div class="publication-list reveal">
-        <div class="pub-item">
-          <div class="pub-icon">📄</div>
-          <div class="pub-info">
-            <div class="pub-venue">IEEE Robotics &amp; Automation Letters</div>
-            <a href="https://ieeexplore.ieee.org/abstract/document/10819616" target="_blank" rel="noopener" class="pub-title" style="display:block; text-decoration:none; color:var(--accent-1); font-weight:600;">Persistent Robot Charging for Long-Term Autonomy</a>
-            <div class="pub-status">✓ Published · 2025 · DOI 10.1109/LRA.2024.3524897</div>
-          </div>
-        </div>
-        <div class="pub-item">
-          <div class="pub-icon">📄</div>
-          <div class="pub-info">
-            <div class="pub-venue">AIAA SciTech 2026</div>
-            <a href="https://doi.org/10.2514/6.2026-1091" target="_blank" rel="noopener" class="pub-title" style="display:block; text-decoration:none; color:var(--accent-1); font-weight:600;">Cooperative Navigation in GPS-Denied Environments</a>
-            <div class="pub-status">✓ Published · 2026 · DOI 10.2514/6.2026-1091</div>
-          </div>
-        </div>
-        <div class="pub-item">
-          <div class="pub-icon">📝</div>
-          <div class="pub-info">
-            <div class="pub-venue">IEEE Transactions on Control Systems Technology</div>
-            <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.173749950.05531697" target="_blank" rel="noopener" class="pub-title" style="display:block; text-decoration:none; color:var(--accent-1); font-weight:600;">Robust Lateral Control for Autonomous Vehicles Under Uncertainty</a>
-            <div class="pub-status">⏳ Under Review</div>
-          </div>
-        </div>
-        <div class="pub-item">
-          <div class="pub-icon">📝</div>
-          <div class="pub-info">
-            <div class="pub-venue">IROS 2026</div>
-            <div class="pub-title">Privacy-Preserving Decentralized Cooperative Localization</div>
-            <div class="pub-status">⏳ Under Review</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SKILLS ==================== -->
-<section id="skills" class="section" aria-label="Technical Skills">
-  <div class="section-inner">
-    <p class="section-label">// skills</p>
-    <h2 class="section-title">Technical Expertise</h2>
-    <p class="section-subtitle">A cross-disciplinary toolkit spanning robotics, controls, AI, and systems engineering.</p>
-    <div class="skills-grid">
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🤖</div>
-        <h3>Robotics &amp; Systems</h3>
-        <div class="skill-chips">
-          <span class="chip">ROS 2</span>
-          <span class="chip">SLAM</span>
-          <span class="chip">FAST-LIO</span>
-          <span class="chip">LiDAR</span>
-          <span class="chip">IMU Fusion</span>
-          <span class="chip">UAV &amp; UGV</span>
-          <span class="chip">PCD Mapping</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🧠</div>
-        <h3>AI &amp; Machine Learning</h3>
-        <div class="skill-chips">
-          <span class="chip">PyTorch</span>
-          <span class="chip">Reinforcement Learning</span>
-          <span class="chip">MAPPO</span>
-          <span class="chip">PettingZoo</span>
-          <span class="chip">HuggingFace</span>
-          <span class="chip">LLM</span>
-          <span class="chip">PDDL</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">📡</div>
-        <h3>Estimation &amp; Control</h3>
-        <div class="skill-chips">
-          <span class="chip">Kalman Filter</span>
-          <span class="chip">Adaptive Control</span>
-          <span class="chip">INDI</span>
-          <span class="chip">ADMM</span>
-          <span class="chip">SDP / LMI</span>
-          <span class="chip">MPC</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">💻</div>
-        <h3>Programming</h3>
-        <div class="skill-chips">
-          <span class="chip">Python</span>
-          <span class="chip">C++</span>
-          <span class="chip">Julia</span>
-          <span class="chip">MATLAB</span>
-          <span class="chip">Simulink</span>
-          <span class="chip">Linux</span>
-          <span class="chip">ROS 2 Humble</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">📐</div>
-        <h3>Optimization</h3>
-        <div class="skill-chips">
-          <span class="chip">Convex Optimization</span>
-          <span class="chip">IBM CPLEX</span>
-          <span class="chip">Gurobi</span>
-          <span class="chip">ILP / MILP</span>
-          <span class="chip">Fast Downward</span>
-        </div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-card-icon">🔬</div>
-        <h3>Research &amp; Deployment</h3>
-        <div class="skill-chips">
-          <span class="chip">IEEE Publications</span>
-          <span class="chip">Monte Carlo Sim</span>
-          <span class="chip">Hardware-in-Loop</span>
-          <span class="chip">Multi-Robot Teams</span>
-          <span class="chip">Real-Time Systems</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== COMPETITION ==================== -->
-<section id="competitions" class="section" aria-label="Competitions">
-  <div class="section-inner">
-    <p class="section-label">// competition</p>
-    <h2 class="section-title">SAE AutoDrive Challenge II</h2>
-    <p class="section-subtitle">National autonomous vehicle competition featuring full-stack robotics integration on a real car.</p>
-    <div class="comp-card reveal">
-      <div class="comp-badge">🥉 3rd Place Nationally — 2025</div>
-      <h2>Autonomous Vehicle SLAM &amp; Control Lead</h2>
-      <p class="comp-date">Aug 2024 – Jun 2025 · Texas A&amp;M University</p>
-      <ul>
-        <li>Led full-stack integration of localization, control, perception, and planning modules — winning 3rd place nationally among university teams across the U.S.</li>
-        <li>Engineered a tightly-coupled real-time SLAM pipeline fusing high-frequency IMU and Ouster LiDAR via FAST-LIO, maintaining accuracy &lt;0.8 m over long runs.</li>
-        <li>Implemented robust global localization via scan-matching against prior PCD maps, effectively eliminating accumulated drift during extended autonomous navigation.</li>
-        <li>Architected a novel INDI lateral controller resilient to parametric uncertainties, achieving &lt;20 cm cross-track error during all autonomous maneuvers.</li>
-      </ul>
-      <div class="comp-videos">
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/BqS50D5Te_U?autoplay=1&mute=1&playsinline=1&rel=0&loop=1&playlist=BqS50D5Te_U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="SAE AutoDrive Demo 1"></iframe>
-        </div>
-        <div class="video-wrap">
-          <iframe src="https://www.youtube.com/embed/bfNxKkoqkPg?autoplay=1&mute=1&playsinline=1&rel=0&loop=1&playlist=bfNxKkoqkPg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="SAE AutoDrive Demo 2"></iframe>
-        </div>
-      </div>
-      <p style="margin-top: 20px;">
-        <a href="https://www.youtube.com/watch?v=yfAE5uTY3LE" target="_blank" rel="noopener" class="proj-link" id="competition-learn-more">
-          Learn more about the competition
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-        </a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== PROJECTS ==================== -->
-<section id="projects" class="section" aria-label="Projects">
-  <div class="section-inner">
-    <p class="section-label">// projects</p>
-    <h2 class="section-title">Highlighted Projects</h2>
-    <p class="section-subtitle">Research and engineering projects spanning multi-agent systems, cooperative localization, AI planning, and adaptive control.</p>
-    <div class="projects-grid">
-
-      <!-- MAPPO Swarm RL -->
-      <div class="proj-card reveal" id="proj-mappo">
-        <div class="proj-header">
-          <div>
-            <h3>Multi-Agent Deep RL for Swarm Robotics</h3>
-            <p class="proj-date">Jan 2026 – Apr 2026 · Texas A&amp;M</p>
-          </div>
-          <span class="proj-type-badge">Research</span>
-        </div>
-        <ul>
-          <li>Engineered a custom MAPPO framework in PyTorch to optimize coordination for a multi-robot PettingZoo swarm environment.</li>
-          <li>Designed a dynamic 10-stage curriculum learning pipeline with automated plateau detection to progressively scale task difficulty.</li>
-          <li>Centralized value estimation with decentralized policy execution using entropy annealing &amp; learning rate scheduling.</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="tag">PyTorch</span><span class="tag">MAPPO</span><span class="tag">PettingZoo</span><span class="tag">Multi-Agent RL</span>
-        </div>
-        <div class="proj-media">
-          <div class="video-wrap" style="padding-bottom:56.25%">
-            <video controls autoplay muted loop playsinline poster="">
-              <source src="rl_animation_default.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-
-      <!-- Decentralized Localization -->
-      <div class="proj-card reveal" id="proj-declocal">
-        <div class="proj-header">
-          <div>
-            <h3>Privacy-Preserving Decentralized Cooperative Localization</h3>
-            <p class="proj-date">Dec 2025 – Mar 2026 · Texas A&amp;M</p>
-          </div>
-          <span class="proj-type-badge" style="color:var(--accent-4);background:rgba(246,173,85,0.1);border-color:rgba(246,173,85,0.3);">Under Review</span>
-        </div>
-        <ul>
-          <li>Developed a privacy-preserving Decentralized Cooperative Localization framework for GPS-denied multi-robot systems — no explicit spatial coordinates shared.</li>
-          <li>Formulated localization with bounded-noise assumptions using SDP and Maximum-Volume Inscribed Ellipsoid estimation for tight position bounds.</li>
-          <li>Validated via extensive 3D Monte Carlo simulations, outperforming baseline SDP methods with scalable parallel computation.</li>
-          <li>Paper submitted to <strong>IROS 2026</strong> — currently under review.</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="tag">SDP</span><span class="tag">Privacy-Preserving</span><span class="tag">LMI</span><span class="tag">Convex Optimization</span>
-        </div>
-        <div class="proj-media">
-          <img src="Picture3.png" alt="Localization result visualization" style="border-radius:8px; width:100%;">
-        </div>
-        <span class="proj-link" style="cursor:default;opacity:0.75;">⏳ Under Review · IROS 2026</span>
-      </div>
-
-      <!-- LLM Planning -->
-      <div class="proj-card reveal" id="proj-llm">
-        <div class="proj-header">
-          <div>
-            <h3>LLM-Driven Automated Planning Framework</h3>
-            <p class="proj-date">Jan 2026 – Mar 2026 · Texas A&amp;M</p>
-          </div>
-          <span class="proj-type-badge">AI</span>
-        </div>
-        <ul>
-          <li>Leveraged Qwen 3B via HuggingFace Transformers to automatically translate natural language task requirements into valid PDDL specifications.</li>
-          <li>Integrated unified-planning library and Fast Downward solver for optimal, collision-free paths in constraint-heavy grid world scenarios.</li>
-          <li>Applied model pruning and quantization techniques to enable real-time LLM inference for deployment.</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="tag">LLM</span><span class="tag">Qwen 3B</span><span class="tag">HuggingFace</span><span class="tag">PDDL</span><span class="tag">Fast Downward</span>
-        </div>
-        <div class="proj-media">
-          <img src="LLM_planning.png" alt="LLM planning framework diagram" style="border-radius:8px; width:100%;">
-        </div>
-      </div>
-
-      <!-- GPS-Denied Navigation -->
-      <div class="proj-card reveal" id="proj-gps">
-        <div class="proj-header">
-          <div>
-            <h3>Path Planning &amp; Navigation in GPS-Denied Environments</h3>
-            <p class="proj-date">Dec 2024 – Jul 2025 · Texas A&amp;M</p>
-          </div>
-          <span class="proj-type-badge">Publication</span>
-        </div>
-        <ul>
-          <li>Developed two novel cooperative algorithms for motion and navigation for multi-robot teams.</li>
-          <li>Kalman filter-based localization using relative measurements between robots and known landmarks.</li>
-          <li>Implemented real-time algorithm on two drones &amp; one ground vehicle using ROS, navigating without GPS.</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="tag">ROS</span><span class="tag">Kalman Filter</span><span class="tag">Cooperative Localization</span><span class="tag">Python</span>
-        </div>
-        <div class="proj-media">
-          <div class="video-wrap" style="padding-bottom:56.25%">
-            <iframe src="https://www.youtube.com/embed/rZDhdDzilF0?autoplay=1&mute=1&playsinline=1&rel=0&loop=1&playlist=rZDhdDzilF0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="GPS-Denied Navigation Demo"></iframe>
-          </div>
-        </div>
-        <a href="https://doi.org/10.2514/6.2026-1091" target="_blank" rel="noopener" class="proj-link" id="proj-gps-paper">
-          View Paper (AIAA SciTech 2026)
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-        </a>
-      </div>
-
-      <!-- UAV Charging -->
-      <div class="proj-card reveal" id="proj-charging">
-        <div class="proj-header">
-          <div>
-            <h3>Persistent Robot Charging for Long-Term Autonomy</h3>
-            <p class="proj-date">Oct 2023 – Dec 2024 · Texas A&amp;M</p>
-          </div>
-          <span class="proj-type-badge">Publication</span>
-        </div>
-        <ul>
-          <li>Formulated ILP algorithm with Julia/IBM CPLEX for optimal heterogeneous drone charging schedules.</li>
-          <li>Developed proof-of-concept for UAV charging stations to minimize human intervention.</li>
-          <li>Paper accepted at <strong>IEEE Robotics &amp; Automation Letters</strong>.</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="tag">Julia</span><span class="tag">IBM CPLEX</span><span class="tag">Gurobi</span><span class="tag">ILP</span>
-        </div>
-        <div class="gif-row">
-          <img src="subtour.gif" alt="UAV scheduling subtour demo" />
-          <img src="battery_animation.gif" alt="Battery scheduling animation" />
-        </div>
-        <a href="https://ieeexplore.ieee.org/abstract/document/10819616" target="_blank" rel="noopener" class="proj-link" id="proj-charging-paper">
-          View Paper (IEEE RA-L)
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-        </a>
-      </div>
-
-      <!-- Exosuit -->
-      <div class="proj-card reveal" id="proj-exosuit">
-        <div class="proj-header">
-          <div>
-            <h3>Adaptive Control of Cable-Driven Upper Arm Exosuit</h3>
-            <p class="proj-date">Jul 2022 – Jul 2023 · IIT Delhi</p>
-          </div>
-          <span class="proj-type-badge">Hardware</span>
-        </div>
-        <ul>
-          <li>Contributed to collaborative research enhancing human arm strength with soft exosuits.</li>
-          <li>Built actuator powered by EC 60 Maxon Motor &amp; Raspberry Pi.</li>
-          <li>Model-based Adaptive Gravity Compensation achieved <strong>63% reduction in metabolic cost</strong>.</li>
-          <li>Developed RL &amp; Kalman Filter controllers for user intent detection and adaptive assistance.</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="tag">Adaptive Control</span><span class="tag">Reinforcement Learning</span><span class="tag">Kalman Filter</span><span class="tag">Exosuit</span>
-        </div>
-        <div class="proj-media">
-          <div class="video-wrap" style="padding-bottom:56.25%">
-            <video controls autoplay muted loop playsinline poster="exosuit_thumb.jpg">
-              <source src="exosuit4_version1.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-        <a href="https://arxiv.org/abs/2304.14823" target="_blank" rel="noopener" class="proj-link" id="proj-exosuit-arxiv">
-          View on arXiv
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-        </a>
-      </div>
-
-      <!-- Robust Lateral Control -->
-      <div class="proj-card reveal" id="proj-lateral">
-        <div class="proj-header">
-          <div>
-            <h3>Robust Lateral Control of Autonomous Vehicles</h3>
-            <p class="proj-date">Oct 2023 – Dec 2024 · Texas A&amp;M</p>
-          </div>
-          <span class="proj-type-badge">Under Review</span>
-        </div>
-        <ul>
-          <li>Created a robust lateral control algorithm for autonomous vehicles that adapts to unknown loads.</li>
-          <li>Ensured stable and accurate path tracking under various loading conditions via a novel modeling approach.</li>
-          <li>Validated with low tracking errors through simulation. Paper under review at <strong>IEEE T-CST</strong>.</li>
-        </ul>
-        <div class="proj-tags">
-          <span class="tag">Robust Control</span><span class="tag">Autonomous Vehicles</span><span class="tag">Uncertainty</span>
-        </div>
-        <div class="proj-media">
-          <img src="Robust Lateral Control.png" alt="Robust lateral control simulation results" style="border-radius:8px; width:100%;">
-        </div>
-        <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.173749950.05531697" target="_blank" rel="noopener" class="proj-link" id="proj-lateral-techrxiv">
-          TechRxiv (Under Review)
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-        </a>
-      </div>
-
-      <!-- Longitudinal-Motion-Aware Robust Nonlinear Lateral Control (NEW) -->
-      <div class="proj-card reveal" id="proj-veh-lateral" style="grid-column: 1 / -1;">
-        <div class="proj-header">
-          <div>
-            <h3>Longitudinal-Motion-Aware Robust Nonlinear Lateral Control for Autonomous Vehicles</h3>
-            <p class="proj-date">Oct 2023 – Dec 2024 · Texas A&amp;M</p>
-          </div>
-          <span class="proj-type-badge" style="color:var(--accent-4);background:rgba(246,173,85,0.1);border-color:rgba(246,173,85,0.3);">Under Review</span>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;">
-          <ul>
-            <li>Derived a tracking error model that explicitly captures varying longitudinal speed and acceleration, addressing constant-speed assumptions in existing lateral controllers.</li>
-            <li>Employed <strong>feedback linearization</strong> to obtain a linear input–output relation for lateral error tracking while embedding longitudinal motion into the control law.</li>
-            <li>Analyzed the resulting internal dynamics to guarantee overall system stability during transient longitudinal maneuvers.</li>
-            <li>Proposed two robust control designs for parametric uncertainty: a <strong>Lyapunov Redesign (LR)</strong> approach inspired by sliding mode control, and an <strong>Incremental Nonlinear Dynamic Inversion (INDI)</strong> method — both rigorously proven to ensure ultimate boundedness.</li>
-            <li>Simulations demonstrate enhanced tracking accuracy, consistent performance across varying speeds/accelerations, and robustness to model uncertainties.</li>
-            <li>Real-vehicle tests confirm real-time implementation and practical path-tracking on actual hardware. Paper under review at <strong>IEEE T-CST</strong>.</li>
-          </ul>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
-              <div style="display:flex;flex-direction:column;gap:6px;">
-                <img src="track1.jpg" alt="Track 1 test path" style="border-radius:8px;width:100%;object-fit:cover;height:130px;border:1px solid var(--border);">
-                <span style="font-size:0.7rem;color:var(--text-3);text-align:center;font-family:var(--font-mono);">Track 1</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:6px;">
-                <img src="veh_e.jpg" alt="Vehicle E platform" style="border-radius:8px;width:100%;object-fit:cover;height:130px;border:1px solid var(--border);">
-                <span style="font-size:0.7rem;color:var(--text-3);text-align:center;font-family:var(--font-mono);">veh_e</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:6px;">
-                <img src="vehicle.jpg" alt="Autonomous vehicle hardware" style="border-radius:8px;width:100%;object-fit:cover;height:130px;border:1px solid var(--border);">
-                <span style="font-size:0.7rem;color:var(--text-3);text-align:center;font-family:var(--font-mono);">Vehicle</span>
-              </div>
-            </div>
-            <div class="proj-media">
-              <img src="Robust Lateral Control.png" alt="Simulation results" style="border-radius:8px;width:100%;">
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
-          <div class="proj-tags">
-            <span class="tag">Feedback Linearization</span><span class="tag">INDI</span><span class="tag">Lyapunov Redesign</span><span class="tag">Robust Control</span><span class="tag">Autonomous Vehicles</span><span class="tag">Nonlinear Control</span><span class="tag">Parametric Uncertainty</span>
-          </div>
-          <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.173749950.05531697" target="_blank" rel="noopener" class="proj-link" id="proj-veh-lateral-techrxiv" style="margin-left:auto;">
-            TechRxiv Preprint
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            View Projects
+          </a>
+          <a href="mailto:niteshk@tamu.edu" class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Get in Touch
           </a>
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
+      <div class="hero-card">
+        <img src="profile.jpeg" alt="Nitesh Kumar" class="profile-img" />
+        <h2>Nitesh Kumar</h2>
+        <p class="card-subtitle">Ph.D. Mechanical Engineering</p>
 
-<!-- ==================== CONTACT ==================== -->
-<section id="contact" class="section" aria-label="Contact">
-  <div class="section-inner">
-    <p class="section-label">// contact</p>
-    <div class="contact-box reveal">
-      <h2>Let's Work Together</h2>
-      <p>Open to research collaborations, internships, and full-time opportunities in robotics and autonomous systems.</p>
-      <div class="contact-btns">
-        <a href="mailto:niteshk@tamu.edu" class="btn-primary" id="contact-email-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          niteshk@tamu.edu
-        </a>
-        <a href="https://www.linkedin.com/in/nitesh-kumar-08349b135" target="_blank" rel="noopener" class="btn-secondary" id="contact-linkedin-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
+        <div class="social-row">
+          <a href="mailto:niteshk@tamu.edu" class="social-btn" id="hero-email-btn">✉ Email</a>
+          <a href="https://www.linkedin.com/in/nitesh-kumar-08349b135" target="_blank" rel="noopener" class="social-btn"
+            id="hero-linkedin-btn">in LinkedIn</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ==================== FOOTER ==================== -->
-<footer>
-  <p>© 2025 <span>Nitesh Kumar</span> · Ph.D. Researcher · Texas A&amp;M University</p>
-</footer>
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about" class="section" aria-label="About Me">
+    <div class="section-inner">
+      <p class="section-label">// about</p>
+      <h2 class="section-title">Who I Am</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm a <strong>Ph.D. researcher</strong> in Mechanical Engineering (Control &amp; Automation) at
+            <strong>Texas A&amp;M University</strong>, specializing in autonomous systems, robotics, and intelligent
+            control.
+          </p>
+          <p>
+            My work spans motion planning, UAV scheduling, SLAM, and adaptive control — with hands-on real-time
+            deployments on both drones and ground vehicles. I focus on building algorithms that are <strong>robust,
+              scalable, and practical</strong> for uncertainty-heavy robotic missions in GPS-denied environments.
+          </p>
+          <p>
+            I've contributed to research published in <strong>IEEE Robotics &amp; Automation Letters</strong> and
+            <strong>AIAA SciTech</strong>, with further work currently under review at IEEE Transactions on Intelligent
+            Transportation Systems.
+          </p>
+        </div>
+        <div class="publication-list reveal">
+          <div class="pub-item">
+            <div class="pub-icon">📄</div>
+            <div class="pub-info">
+              <div class="pub-venue">IEEE Robotics &amp; Automation Letters</div>
+              <a href="https://ieeexplore.ieee.org/abstract/document/10819616" target="_blank" rel="noopener"
+                class="pub-title"
+                style="display:block; text-decoration:none; color:var(--accent-1); font-weight:600;">Persistent Robot
+                Charging for Long-Term Autonomy</a>
+              <div class="pub-status">✓ Published · 2025 · DOI 10.1109/LRA.2024.3524897</div>
+            </div>
+          </div>
+          <div class="pub-item">
+            <div class="pub-icon">📄</div>
+            <div class="pub-info">
+              <div class="pub-venue">AIAA SciTech 2026</div>
+              <a href="https://doi.org/10.2514/6.2026-1091" target="_blank" rel="noopener" class="pub-title"
+                style="display:block; text-decoration:none; color:var(--accent-1); font-weight:600;">Cooperative
+                Navigation in GPS-Denied Environments</a>
+              <div class="pub-status">✓ Published · 2026 · DOI 10.2514/6.2026-1091</div>
+            </div>
+          </div>
+          <div class="pub-item">
+            <div class="pub-icon">📝</div>
+            <div class="pub-info">
+              <div class="pub-venue">IEEE Transactions on Control Systems Technology</div>
+              <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.173749950.05531697" target="_blank"
+                rel="noopener" class="pub-title"
+                style="display:block; text-decoration:none; color:var(--accent-1); font-weight:600;">Robust Lateral
+                Control for Autonomous Vehicles Under Uncertainty</a>
+              <div class="pub-status">⏳ Under Review</div>
+            </div>
+          </div>
+          <div class="pub-item">
+            <div class="pub-icon">📝</div>
+            <div class="pub-info">
+              <div class="pub-venue">IROS 2026</div>
+              <div class="pub-title">Privacy-Preserving Decentralized Cooperative Localization</div>
+              <div class="pub-status">⏳ Under Review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- ==================== SCRIPT ==================== -->
-<script>
-  // Scroll Reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => observer.observe(el));
+  <!-- ==================== SKILLS ==================== -->
+  <section id="skills" class="section" aria-label="Technical Skills">
+    <div class="section-inner">
+      <p class="section-label">// skills</p>
+      <h2 class="section-title">Technical Expertise</h2>
+      <p class="section-subtitle">A cross-disciplinary toolkit spanning robotics, controls, AI, and systems engineering.
+      </p>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">🤖</div>
+          <h3>Robotics &amp; Systems</h3>
+          <div class="skill-chips">
+            <span class="chip">ROS 2</span>
+            <span class="chip">SLAM</span>
+            <span class="chip">FAST-LIO</span>
+            <span class="chip">LiDAR</span>
+            <span class="chip">IMU Fusion</span>
+            <span class="chip">UAV &amp; UGV</span>
+            <span class="chip">PCD Mapping</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">🧠</div>
+          <h3>AI &amp; Machine Learning</h3>
+          <div class="skill-chips">
+            <span class="chip">PyTorch</span>
+            <span class="chip">Reinforcement Learning</span>
+            <span class="chip">MAPPO</span>
+            <span class="chip">PettingZoo</span>
+            <span class="chip">HuggingFace</span>
+            <span class="chip">LLM</span>
+            <span class="chip">PDDL</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">📡</div>
+          <h3>Estimation &amp; Control</h3>
+          <div class="skill-chips">
+            <span class="chip">Kalman Filter</span>
+            <span class="chip">Adaptive Control</span>
+            <span class="chip">INDI</span>
+            <span class="chip">ADMM</span>
+            <span class="chip">SDP / LMI</span>
+            <span class="chip">MPC</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">💻</div>
+          <h3>Programming</h3>
+          <div class="skill-chips">
+            <span class="chip">Python</span>
+            <span class="chip">C++</span>
+            <span class="chip">Julia</span>
+            <span class="chip">MATLAB</span>
+            <span class="chip">Simulink</span>
+            <span class="chip">Linux</span>
+            <span class="chip">ROS 2 Humble</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">📐</div>
+          <h3>Optimization</h3>
+          <div class="skill-chips">
+            <span class="chip">Convex Optimization</span>
+            <span class="chip">IBM CPLEX</span>
+            <span class="chip">Gurobi</span>
+            <span class="chip">ILP / MILP</span>
+            <span class="chip">Fast Downward</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">🔬</div>
+          <h3>Research &amp; Deployment</h3>
+          <div class="skill-chips">
+            <span class="chip">IEEE Publications</span>
+            <span class="chip">Monte Carlo Sim</span>
+            <span class="chip">Hardware-in-Loop</span>
+            <span class="chip">Multi-Robot Teams</span>
+            <span class="chip">Real-Time Systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  // Nav active highlight
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => a.style.color = '');
-        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-        if (active) active.style.color = 'var(--accent-1)';
-      }
-    });
-  }, { rootMargin: '-40% 0px -55% 0px' });
-  sections.forEach(s => navObserver.observe(s));
+  <!-- ==================== COMPETITION ==================== -->
+  <section id="competitions" class="section" aria-label="Competitions">
+    <div class="section-inner">
+      <p class="section-label">// competition</p>
+      <h2 class="section-title">SAE AutoDrive Challenge II</h2>
+      <p class="section-subtitle">National autonomous vehicle competition featuring full-stack robotics integration on a
+        real car.</p>
+      <div class="comp-card reveal">
+        <div class="comp-badge">🥉 3rd Place Nationally — 2025</div>
+        <h2>Autonomous Vehicle SLAM &amp; Control Lead</h2>
+        <p class="comp-date">Aug 2024 – Jun 2025 · Texas A&amp;M University</p>
+        <ul>
+          <li>Led full-stack integration of localization, control, perception, and planning modules — winning 3rd place
+            nationally among university teams across the U.S.</li>
+          <li>Engineered a tightly-coupled real-time SLAM pipeline fusing high-frequency IMU and Ouster LiDAR via
+            FAST-LIO, maintaining accuracy &lt;0.8 m over long runs.</li>
+          <li>Implemented robust global localization via scan-matching against prior PCD maps, effectively eliminating
+            accumulated drift during extended autonomous navigation.</li>
+          <li>Architected a novel INDI lateral controller resilient to parametric uncertainties, achieving &lt;20 cm
+            cross-track error during all autonomous maneuvers.</li>
+        </ul>
+        <div class="comp-videos">
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/BqS50D5Te_U?autoplay=1&mute=1&playsinline=1&rel=0&loop=1&playlist=BqS50D5Te_U"
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"
+              title="SAE AutoDrive Demo 1"></iframe>
+          </div>
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/bfNxKkoqkPg?autoplay=1&mute=1&playsinline=1&rel=0&loop=1&playlist=bfNxKkoqkPg"
+              frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"
+              title="SAE AutoDrive Demo 2"></iframe>
+          </div>
+        </div>
+        <p style="margin-top: 20px;">
+          <a href="https://www.youtube.com/watch?v=yfAE5uTY3LE" target="_blank" rel="noopener" class="proj-link"
+            id="competition-learn-more">
+            Learn more about the competition
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+            </svg>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-  // Nav blur on scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.style.background = window.scrollY > 40
-      ? 'rgba(8,12,20,0.95)'
-      : 'rgba(8,12,20,0.7)';
-  }, { passive: true });
-</script>
+  <!-- ==================== PROJECTS ==================== -->
+  <section id="projects" class="section" aria-label="Projects">
+    <div class="section-inner">
+      <p class="section-label">// projects</p>
+      <h2 class="section-title">Highlighted Projects</h2>
+      <p class="section-subtitle">Research and engineering projects spanning multi-agent systems, cooperative
+        localization, AI planning, and adaptive control.</p>
+      <div class="projects-grid">
+
+        <!-- MAPPO Swarm RL -->
+        <div class="proj-card reveal" id="proj-mappo">
+          <div class="proj-header">
+            <div>
+              <h3>Multi-Agent Deep RL for Swarm Robotics</h3>
+              <p class="proj-date">Jan 2026 – Apr 2026 · Texas A&amp;M</p>
+            </div>
+            <span class="proj-type-badge">Research</span>
+          </div>
+          <ul>
+            <li>Engineered a custom MAPPO framework in PyTorch to optimize coordination for a multi-robot PettingZoo
+              swarm environment.</li>
+            <li>Designed a dynamic 10-stage curriculum learning pipeline with automated plateau detection to
+              progressively scale task difficulty.</li>
+            <li>Centralized value estimation with decentralized policy execution using entropy annealing &amp; learning
+              rate scheduling.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="tag">PyTorch</span><span class="tag">MAPPO</span><span class="tag">PettingZoo</span><span
+              class="tag">Multi-Agent RL</span>
+          </div>
+          <div class="proj-media">
+            <div class="video-wrap" style="padding-bottom:56.25%">
+              <video controls autoplay muted loop playsinline poster="">
+                <source src="rl_animation_default.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decentralized Localization -->
+        <div class="proj-card reveal" id="proj-declocal">
+          <div class="proj-header">
+            <div>
+              <h3>Privacy-Preserving Decentralized Cooperative Localization</h3>
+              <p class="proj-date">Dec 2025 – Mar 2026 · Texas A&amp;M</p>
+            </div>
+            <span class="proj-type-badge"
+              style="color:var(--accent-4);background:rgba(246,173,85,0.1);border-color:rgba(246,173,85,0.3);">Under
+              Review</span>
+          </div>
+          <ul>
+            <li>Developed a privacy-preserving Decentralized Cooperative Localization framework for GPS-denied
+              multi-robot systems — no explicit spatial coordinates shared.</li>
+            <li>Formulated localization with bounded-noise assumptions using SDP and Maximum-Volume Inscribed Ellipsoid
+              estimation for tight position bounds.</li>
+            <li>Validated via extensive 3D Monte Carlo simulations, outperforming baseline SDP methods with scalable
+              parallel computation.</li>
+            <li>Paper submitted to <strong>IROS 2026</strong> — currently under review.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="tag">SDP</span><span class="tag">Privacy-Preserving</span><span class="tag">LMI</span><span
+              class="tag">Convex Optimization</span>
+          </div>
+          <div class="proj-media">
+            <img src="Picture3.png" alt="Localization result visualization" style="border-radius:8px; width:100%;">
+          </div>
+          <span class="proj-link" style="cursor:default;opacity:0.75;">⏳ Under Review · IROS 2026</span>
+        </div>
+
+        <!-- LLM Planning -->
+        <div class="proj-card reveal" id="proj-llm">
+          <div class="proj-header">
+            <div>
+              <h3>LLM-Driven Automated Planning Framework</h3>
+              <p class="proj-date">Jan 2026 – Mar 2026 · Texas A&amp;M</p>
+            </div>
+            <span class="proj-type-badge">AI</span>
+          </div>
+          <ul>
+            <li>Leveraged Qwen 3B via HuggingFace Transformers to automatically translate natural language task
+              requirements into valid PDDL specifications.</li>
+            <li>Integrated unified-planning library and Fast Downward solver for optimal, collision-free paths in
+              constraint-heavy grid world scenarios.</li>
+            <li>Applied model pruning and quantization techniques to enable real-time LLM inference for deployment.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="tag">LLM</span><span class="tag">Qwen 3B</span><span class="tag">HuggingFace</span><span
+              class="tag">PDDL</span><span class="tag">Fast Downward</span>
+          </div>
+          <div class="proj-media">
+            <img src="LLM_planning.png" alt="LLM planning framework diagram" style="border-radius:8px; width:100%;">
+          </div>
+        </div>
+
+        <!-- GPS-Denied Navigation -->
+        <div class="proj-card reveal" id="proj-gps">
+          <div class="proj-header">
+            <div>
+              <h3>Path Planning &amp; Navigation in GPS-Denied Environments</h3>
+              <p class="proj-date">Dec 2024 – Jul 2025 · Texas A&amp;M</p>
+            </div>
+            <span class="proj-type-badge">Publication</span>
+          </div>
+          <ul>
+            <li>Developed two novel cooperative algorithms for motion and navigation for multi-robot teams.</li>
+            <li>Kalman filter-based localization using relative measurements between robots and known landmarks.</li>
+            <li>Implemented real-time algorithm on two drones &amp; one ground vehicle using ROS, navigating without
+              GPS.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="tag">ROS</span><span class="tag">Kalman Filter</span><span class="tag">Cooperative
+              Localization</span><span class="tag">Python</span>
+          </div>
+          <div class="proj-media">
+            <div class="video-wrap" style="padding-bottom:56.25%">
+              <iframe
+                src="https://www.youtube.com/embed/rZDhdDzilF0?autoplay=1&mute=1&playsinline=1&rel=0&loop=1&playlist=rZDhdDzilF0"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"
+                title="GPS-Denied Navigation Demo"></iframe>
+            </div>
+          </div>
+          <a href="https://doi.org/10.2514/6.2026-1091" target="_blank" rel="noopener" class="proj-link"
+            id="proj-gps-paper">
+            View Paper (AIAA SciTech 2026)
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- UAV Charging -->
+        <div class="proj-card reveal" id="proj-charging">
+          <div class="proj-header">
+            <div>
+              <h3>Persistent Robot Charging for Long-Term Autonomy</h3>
+              <p class="proj-date">Oct 2023 – Dec 2024 · Texas A&amp;M</p>
+            </div>
+            <span class="proj-type-badge">Publication</span>
+          </div>
+          <ul>
+            <li>Formulated ILP algorithm with Julia/IBM CPLEX for optimal heterogeneous drone charging schedules.</li>
+            <li>Developed proof-of-concept for UAV charging stations to minimize human intervention.</li>
+            <li>Paper accepted at <strong>IEEE Robotics &amp; Automation Letters</strong>.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="tag">Julia</span><span class="tag">IBM CPLEX</span><span class="tag">Gurobi</span><span
+              class="tag">ILP</span>
+          </div>
+          <div class="gif-row">
+            <img src="subtour.gif" alt="UAV scheduling subtour demo" />
+            <img src="battery_animation.gif" alt="Battery scheduling animation" />
+          </div>
+          <a href="https://ieeexplore.ieee.org/abstract/document/10819616" target="_blank" rel="noopener"
+            class="proj-link" id="proj-charging-paper">
+            View Paper (IEEE RA-L)
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Exosuit -->
+        <div class="proj-card reveal" id="proj-exosuit">
+          <div class="proj-header">
+            <div>
+              <h3>Adaptive Control of Cable-Driven Upper Arm Exosuit</h3>
+              <p class="proj-date">Jul 2022 – Jul 2023 · IIT Delhi</p>
+            </div>
+            <span class="proj-type-badge">Hardware</span>
+          </div>
+          <ul>
+            <li>Contributed to collaborative research enhancing human arm strength with soft exosuits.</li>
+            <li>Built actuator powered by EC 60 Maxon Motor &amp; Raspberry Pi.</li>
+            <li>Model-based Adaptive Gravity Compensation achieved <strong>63% reduction in metabolic cost</strong>.
+            </li>
+            <li>Developed RL &amp; Kalman Filter controllers for user intent detection and adaptive assistance.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="tag">Adaptive Control</span><span class="tag">Reinforcement Learning</span><span
+              class="tag">Kalman Filter</span><span class="tag">Exosuit</span>
+          </div>
+          <div class="proj-media">
+            <div class="video-wrap" style="padding-bottom:56.25%">
+              <video controls autoplay muted loop playsinline poster="exosuit_thumb.jpg">
+                <source src="exosuit4_version1.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <a href="https://arxiv.org/abs/2304.14823" target="_blank" rel="noopener" class="proj-link"
+            id="proj-exosuit-arxiv">
+            View on arXiv
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Robust Lateral Control -->
+        <div class="proj-card reveal" id="proj-lateral">
+          <div class="proj-header">
+            <div>
+              <h3>Robust Lateral Control of Autonomous Vehicles</h3>
+              <p class="proj-date">Oct 2023 – Dec 2024 · Texas A&amp;M</p>
+            </div>
+            <span class="proj-type-badge">Under Review</span>
+          </div>
+          <ul>
+            <li>Created a robust lateral control algorithm for autonomous vehicles that adapts to unknown loads.</li>
+            <li>Ensured stable and accurate path tracking under various loading conditions via a novel modeling
+              approach.</li>
+            <li>Validated with low tracking errors through simulation. Paper under review at <strong>IEEE
+                T-CST</strong>.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="tag">Robust Control</span><span class="tag">Autonomous Vehicles</span><span
+              class="tag">Uncertainty</span>
+          </div>
+          <div class="proj-media">
+            <img src="Robust Lateral Control.png" alt="Robust lateral control simulation results"
+              style="border-radius:8px; width:100%;">
+          </div>
+          <a href="https://www.techrxiv.org/doi/full/10.36227/techrxiv.173749950.05531697" target="_blank"
+            rel="noopener" class="proj-link" id="proj-lateral-techrxiv">
+            TechRxiv (Under Review)
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Longitudinal-Motion-Aware Robust Nonlinear Lateral Control (NEW) -->
+        <div class="proj-card reveal" id="proj-veh-lateral">
+          <div class="proj-header">
+            <div>
+              <h3>Longitudinal-Motion-Aware Robust Nonlinear Lateral Control for Autonomous Vehicles</h3>
+              <p class="proj-date">Oct 2023 – Dec 2024 · Texas A&amp;M</p>
+            </div>
+            <span class="proj-type-badge"
+              style="color:var(--accent-4);background:rgba(246,173,85,0.1);border-color:rgba(246,173,85,0.3);">Under
+              Review</span>
+          </div>
+          <ul>
+            <li><span>Derived a tracking error model that explicitly captures varying longitudinal speed and
+                acceleration, addressing constant-speed assumptions in existing lateral controllers.</span></li>
+            <li><span>Employed <strong>feedback linearization</strong> to obtain a linear input–output relation for
+                lateral error tracking while embedding longitudinal motion into the control law.</span></li>
+            <li><span>Analyzed the resulting internal dynamics to guarantee overall system stability during transient
+                longitudinal maneuvers.</span></li>
+            <li><span>Proposed two robust control designs for parametric uncertainty: a <strong>Lyapunov Redesign
+                  (LR)</strong> approach inspired by sliding mode control, and an <strong>Incremental Nonlinear Dynamic
+                  Inversion (INDI)</strong> method — both rigorously proven to ensure ultimate boundedness.</span></li>
+            <li><span>Simulations demonstrate enhanced tracking accuracy, consistent performance across varying
+                speeds/accelerations, and robustness to model uncertainties.</span></li>
+            <li><span>Real-vehicle tests confirm real-time implementation and practical path-tracking on actual
+                hardware. Paper under review at <strong>IEEE T-CST</strong>.</span></li>
+          </ul>
+          <div class="proj-tags">
+            <span class="tag">Feedback Linearization</span><span class="tag">INDI</span><span class="tag">Lyapunov
+              Redesign</span><span class="tag">Robust Control</span><span class="tag">Autonomous Vehicles</span><span
+              class="tag">Nonlinear Control</span><span class="tag">Parametric Uncertainty</span>
+          </div>
+          <div class="proj-media">
+            <img src="veh_e.jpg" alt="Track 1 — test path for lateral control" style="border-radius:8px; width:100%;" />
+          </div>
+          <div class="gif-row">
+            <img src="track1.jpg" alt="Vehicle E — test platform" />
+            <img src="vehicle.jpg" alt="Autonomous vehicle hardware" />
+          </div>
+          <span class="proj-link" style="cursor:default;opacity:0.75;">⏳ Under Review · IEEE T-CST</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT ==================== -->
+  <section id="contact" class="section" aria-label="Contact">
+    <div class="section-inner">
+      <p class="section-label">// contact</p>
+      <div class="contact-box reveal">
+        <h2>Let's Work Together</h2>
+        <p>Open to research collaborations, internships, and full-time opportunities in robotics and autonomous systems.
+        </p>
+        <div class="contact-btns">
+          <a href="mailto:niteshk@tamu.edu" class="btn-primary" id="contact-email-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            niteshk@tamu.edu
+          </a>
+          <a href="https://www.linkedin.com/in/nitesh-kumar-08349b135" target="_blank" rel="noopener"
+            class="btn-secondary" id="contact-linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <p>© 2025 <span>Nitesh Kumar</span> · Ph.D. Researcher · Texas A&amp;M University</p>
+  </footer>
+
+  <!-- ==================== SCRIPT ==================== -->
+  <script>
+    // Scroll Reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Nav active highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.style.color = '');
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.style.color = 'var(--accent-1)';
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => navObserver.observe(s));
+
+    // Nav blur on scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 40
+        ? 'rgba(8,12,20,0.95)'
+        : 'rgba(8,12,20,0.7)';
+    }, { passive: true });
+  </script>
 </body>
+
 </html>
