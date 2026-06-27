@@ -361,6 +361,293 @@
       margin-bottom: 4px;
     }
 
+    /* ================================================
+       EQUIPMENT SHOWCASE
+    ================================================ */
+    #equipment-showcase {
+      background: var(--bg-2);
+      padding: 70px 5vw 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #equipment-showcase::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-1), var(--accent-2), transparent);
+    }
+
+    .showcase-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .showcase-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .showcase-header .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent-1);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .showcase-header h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .showcase-header p {
+      color: var(--text-2);
+      font-size: 0.95rem;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    /* Carousel viewport */
+    .showcase-carousel {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .showcase-viewport {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .showcase-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity .7s ease, transform .7s ease;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .showcase-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+    }
+
+    .showcase-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--bg);
+    }
+
+    /* Glass overlay with info */
+    .showcase-slide-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px 32px 28px;
+      background: linear-gradient(to top, rgba(8, 12, 20, 0.92) 0%, rgba(8, 12, 20, 0.6) 60%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .slide-text h3 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    .slide-text p {
+      color: var(--text-2);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      max-width: 500px;
+    }
+
+    .slide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 5px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .slide-badge--uav {
+      background: rgba(99, 179, 237, 0.15);
+      color: var(--accent-1);
+      border: 1px solid rgba(99, 179, 237, 0.3);
+    }
+
+    .slide-badge--ugv {
+      background: rgba(79, 209, 197, 0.15);
+      color: var(--accent-2);
+      border: 1px solid rgba(79, 209, 197, 0.3);
+    }
+
+    .slide-badge--car {
+      background: rgba(167, 139, 250, 0.15);
+      color: var(--accent-3);
+      border: 1px solid rgba(167, 139, 250, 0.3);
+    }
+
+    .slide-badge--lab {
+      background: rgba(246, 173, 85, 0.15);
+      color: var(--accent-4);
+      border: 1px solid rgba(246, 173, 85, 0.3);
+    }
+
+    /* Navigation dots */
+    .showcase-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .showcase-dot {
+      width: 40px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: background .3s;
+      padding: 0;
+    }
+
+    .showcase-dot:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .showcase-dot.active {
+      background: rgba(99, 179, 237, 0.25);
+    }
+
+    .showcase-dot .dot-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      border-radius: 999px;
+      transition: width 0s;
+    }
+
+    .showcase-dot.active .dot-fill {
+      width: 100%;
+      transition: width 4s linear;
+    }
+
+    /* Arrow nav buttons */
+    .showcase-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(8, 12, 20, 0.7);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      color: var(--text-1);
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+    }
+
+    .showcase-nav:hover {
+      background: rgba(99, 179, 237, 0.15);
+      border-color: var(--accent-1);
+      color: var(--accent-1);
+    }
+
+    .showcase-nav--prev {
+      left: -21px;
+    }
+
+    .showcase-nav--next {
+      right: -21px;
+    }
+
+    /* Thumbnail strip below */
+    .showcase-thumbs {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .showcase-thumb {
+      width: 80px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.45;
+      transition: all .3s;
+      position: relative;
+    }
+
+    .showcase-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-sm);
+      border: 2px solid transparent;
+      transition: border-color .3s;
+    }
+
+    .showcase-thumb:hover {
+      opacity: 0.75;
+    }
+
+    .showcase-thumb.active {
+      opacity: 1;
+      border-color: var(--accent-1);
+      box-shadow: 0 0 16px rgba(99, 179, 237, 0.3);
+    }
+
+    .showcase-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .hero-card .card-subtitle {
       font-size: 0.82rem;
       color: var(--accent-2);
@@ -974,6 +1261,14 @@
       .comp-videos {
         grid-template-columns: 1fr;
       }
+
+      .showcase-nav--prev {
+        left: 8px;
+      }
+
+      .showcase-nav--next {
+        right: 8px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -1066,6 +1361,103 @@
           <a href="mailto:niteshk@tamu.edu" class="social-btn" id="hero-email-btn">✉ Email</a>
           <a href="https://www.linkedin.com/in/nitesh-kumar-08349b135" target="_blank" rel="noopener" class="social-btn"
             id="hero-linkedin-btn">in LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EQUIPMENT SHOWCASE ==================== -->
+  <section id="equipment-showcase" aria-label="Platforms I Work With">
+    <div class="showcase-inner">
+      <div class="showcase-header reveal">
+        <p class="section-label">// platforms</p>
+        <h2>Equipment I Work With</h2>
+        <p>Hands-on experience deploying algorithms on real robotic platforms — from aerial drones to autonomous ground
+          vehicles.</p>
+      </div>
+
+      <div class="showcase-carousel reveal">
+        <!-- Arrow Nav -->
+        <button class="showcase-nav showcase-nav--prev" id="showcase-prev" aria-label="Previous slide">&#8592;</button>
+        <button class="showcase-nav showcase-nav--next" id="showcase-next" aria-label="Next slide">&#8594;</button>
+
+        <div class="showcase-viewport" id="showcase-viewport">
+          <!-- Slide 1: UAV -->
+          <div class="showcase-slide active" data-index="0">
+            <img src="uav.jpeg" alt="Custom UAV Quadcopter" />
+            <div class="showcase-slide-info">
+              <div class="slide-text">
+                <h3>Custom UAV Quadcopter</h3>
+                <p>Multi-rotor platform for SLAM, path planning, and cooperative localization research in GPS-denied
+                  environments.</p>
+              </div>
+              <span class="slide-badge slide-badge--uav">✈ Aerial</span>
+            </div>
+          </div>
+
+          <!-- Slide 2: Husky UGV -->
+          <div class="showcase-slide" data-index="1">
+            <img src="husky.jpeg" alt="Clearpath Husky UGV" />
+            <div class="showcase-slide-info">
+              <div class="slide-text">
+                <h3>Clearpath Husky UGV</h3>
+                <p>Rugged ground robot used for multi-agent coordination, LiDAR-based mapping, and autonomous navigation
+                  experiments.</p>
+              </div>
+              <span class="slide-badge slide-badge--ugv">⬡ Ground</span>
+            </div>
+          </div>
+
+          <!-- Slide 3: Autonomous Vehicle -->
+          <div class="showcase-slide" data-index="2">
+            <img src="vehicle.jpg" alt="Autonomous Vehicle – 12th Unmanned Team" />
+            <div class="showcase-slide-info">
+              <div class="slide-text">
+                <h3>Autonomous Vehicle</h3>
+                <p>Full-scale self-driving car with Camera, LiDAR &amp; GPS sensor suite for the AutoDrive Challenge —
+                  lateral control and adaptive planning.</p>
+              </div>
+              <span class="slide-badge slide-badge--car">◈ Vehicle</span>
+            </div>
+          </div>
+
+          <!-- Slide 4: All Robots -->
+          <div class="showcase-slide" data-index="3">
+            <img src="all_robots.jpeg" alt="TAMU Center for Advanced Robotics – Full Fleet" />
+            <div class="showcase-slide-info">
+              <div class="slide-text">
+                <h3>TAMU Robotics Fleet</h3>
+                <p>Full multi-robot fleet at the Center for Advanced Robotics — Turtle bot, Husky, Jackal, Unitree,
+                  quadrotor and Waypoint Vector.</p>
+              </div>
+              <span class="slide-badge slide-badge--lab">⬢ Lab</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="showcase-thumbs" id="showcase-thumbs">
+          <button class="showcase-thumb active" data-index="0" aria-label="Show UAV">
+            <img src="uav.jpeg" alt="UAV thumbnail" />
+          </button>
+          <button class="showcase-thumb" data-index="1" aria-label="Show Husky">
+            <img src="husky.jpeg" alt="Husky thumbnail" />
+          </button>
+          <button class="showcase-thumb" data-index="2" aria-label="Show Vehicle">
+            <img src="vehicle.jpg" alt="Vehicle thumbnail" />
+          </button>
+          <button class="showcase-thumb" data-index="3" aria-label="Show All Robots">
+            <img src="all_robots.jpeg" alt="All Robots thumbnail" />
+          </button>
+        </div>
+
+        <!-- Progress dots -->
+        <div class="showcase-dots" id="showcase-dots">
+          <button class="showcase-dot active" data-index="0" aria-label="Slide 1"><span
+              class="dot-fill"></span></button>
+          <button class="showcase-dot" data-index="1" aria-label="Slide 2"><span class="dot-fill"></span></button>
+          <button class="showcase-dot" data-index="2" aria-label="Slide 3"><span class="dot-fill"></span></button>
+          <button class="showcase-dot" data-index="3" aria-label="Slide 4"><span class="dot-fill"></span></button>
         </div>
       </div>
     </div>
@@ -1356,7 +1748,7 @@
               requirements into valid PDDL specifications.</li>
             <li>Integrated unified-planning library and Fast Downward solver for optimal, collision-free paths in
               constraint-heavy grid world scenarios.</li>
-            <li>Applied model pruning and quantization techniques to enable real-time LLM inference for deployment.</li>
+            <!-- <li>Applied model pruning and quantization techniques to enable real-time LLM inference for deployment.</li> -->
           </ul>
           <div class="proj-tags">
             <span class="tag">LLM</span><span class="tag">Qwen 3B</span><span class="tag">HuggingFace</span><span
@@ -1617,6 +2009,93 @@
         ? 'rgba(8,12,20,0.95)'
         : 'rgba(8,12,20,0.7)';
     }, { passive: true });
+
+    // ==================== Equipment Showcase Carousel ====================
+    (function () {
+      const slides = document.querySelectorAll('.showcase-slide');
+      const dots = document.querySelectorAll('.showcase-dot');
+      const thumbs = document.querySelectorAll('.showcase-thumb');
+      const prevBtn = document.getElementById('showcase-prev');
+      const nextBtn = document.getElementById('showcase-next');
+      const viewport = document.getElementById('showcase-viewport');
+      if (!slides.length) return;
+
+      let current = 0;
+      let autoTimer = null;
+      let paused = false;
+      const INTERVAL = 4000;
+
+      function goTo(index) {
+        // Remove active from all
+        slides.forEach(s => s.classList.remove('active'));
+        dots.forEach(d => {
+          d.classList.remove('active');
+          d.querySelector('.dot-fill').style.width = '0';
+          d.querySelector('.dot-fill').style.transition = 'width 0s';
+        });
+        thumbs.forEach(t => t.classList.remove('active'));
+
+        current = (index + slides.length) % slides.length;
+
+        // Activate current
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        thumbs[current].classList.add('active');
+
+        // Restart progress bar animation
+        requestAnimationFrame(() => {
+          const fill = dots[current].querySelector('.dot-fill');
+          fill.style.width = '0';
+          fill.style.transition = 'width 0s';
+          requestAnimationFrame(() => {
+            fill.style.transition = 'width ' + (INTERVAL / 1000) + 's linear';
+            fill.style.width = '100%';
+          });
+        });
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      function startAuto() {
+        stopAuto();
+        autoTimer = setInterval(() => {
+          if (!paused) next();
+        }, INTERVAL);
+      }
+
+      function stopAuto() {
+        if (autoTimer) clearInterval(autoTimer);
+      }
+
+      // Arrow buttons
+      prevBtn.addEventListener('click', () => { prev(); startAuto(); });
+      nextBtn.addEventListener('click', () => { next(); startAuto(); });
+
+      // Dot clicks
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          goTo(parseInt(dot.dataset.index));
+          startAuto();
+        });
+      });
+
+      // Thumb clicks
+      thumbs.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          goTo(parseInt(thumb.dataset.index));
+          startAuto();
+        });
+      });
+
+      // Pause on hover
+      viewport.addEventListener('mouseenter', () => { paused = true; });
+      viewport.addEventListener('mouseleave', () => { paused = false; });
+
+      // Init
+      goTo(0);
+      startAuto();
+    })();
   </script>
 </body>
 
